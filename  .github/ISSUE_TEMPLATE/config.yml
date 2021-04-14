@@ -1,0 +1,8 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Suggest a Feature
+    url: https://github.com/cntitanium/babylon/discussions/categories/feature-requests
+    about: Suggest new features over there!
+  - name: Need Help?
+    url: https://github.com/cntitanium/babylon/discussions/categories/support
+    about: Head over to our support forums to get support.
