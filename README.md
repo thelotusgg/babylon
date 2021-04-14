@@ -1,9 +1,6 @@
 # Babylon - Open Source Crowd Translation
 
 <p>
-  <a href="https://www.npmjs.com/package/babylon" target="_blank">
-    <img alt="Version" src="https://img.shields.io/npm/v/babylon.svg">
-  </a>
   <a href="https://github.com/cntitanium/babylon/blob/dev/README.md" target="_blank">
     <img alt="Documentation" src="https://img.shields.io/badge/documentation-yes-brightgreen.svg" />
   </a>
