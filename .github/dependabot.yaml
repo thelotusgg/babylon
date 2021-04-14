@@ -8,7 +8,7 @@ updates:
     directory: "/frontend"
     schedule:
       interval: "daily"
-  - package-ecosystem: "actions"
+  - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
       interval: "weekly"
