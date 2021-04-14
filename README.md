@@ -1,4 +1,5 @@
-<h1 align="center">Welcome to babylon 👋</h1>
+# Babylon - Open Source Crowd Translation
+
 <p>
   <a href="https://www.npmjs.com/package/babylon" target="_blank">
     <img alt="Version" src="https://img.shields.io/npm/v/babylon.svg">
@@ -11,7 +12,7 @@
   </a>
 </p>
 
-> for i18n (internationalization)
+> Babylon is a complete suite used for i18n.
 
 ### 🏠 [Homepage](https://github.com/cntitanium/babylon)
 
