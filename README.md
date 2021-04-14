@@ -12,6 +12,9 @@
   </a>
 </p>
 
+[![ci-backend](https://github.com/cntitanium/babylon/actions/workflows/ci-backend.yml/badge.svg?branch=dev)](https://github.com/cntitanium/babylon/actions/workflows/ci-backend.yml)
+[![ci-frontend](https://github.com/cntitanium/babylon/actions/workflows/ci-frontend.yml/badge.svg?branch=dev)](https://github.com/cntitanium/babylon/actions/workflows/ci-frontend.yml)
+
 > Babylon is a complete suite used for i18n.
 
 ### 🏠 [Homepage](https://github.com/cntitanium/babylon)
