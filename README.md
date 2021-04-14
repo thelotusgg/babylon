@@ -7,6 +7,9 @@
   <a href="https://github.com/cntitanium/babylon/blob/dev/LICENSE" target="_blank">
     <img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-yellow.svg" />
   </a>
+  <a href="https://github.com/cntitanium/babylon/releases">
+    <img alt="Release" src="https://img.shields.io/github/v/release/cntitanium/babylon?sort=semver">
+  </a>
 </p>
 
 > Babylon is a complete suite used for i18n.
