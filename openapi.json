@@ -26,16 +26,6 @@
                             "type": "string"
                         },
                         "required": true
-                    },
-                    {
-                        "in": "path",
-                        "name": "key",
-                        "description": "The translation key",
-                        "example": "global.user.welcome",
-                        "schema": {
-                            "type": "string"
-                        },
-                        "required": true
                     }
                 ],
                 "responses": {
