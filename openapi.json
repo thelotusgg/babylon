@@ -125,6 +125,18 @@
     },
     "components": {
         "schemas": {
+            "Project": {
+                "type": "object",
+                "properties": {
+                    "projectId": {
+                        "type": "number"
+                    },
+                    "name": {
+                        "type": "string",
+                        "example": "Babylon"
+                    }
+                }
+            },
             "Phrase": {
                 "type": "object",
                 "properties": {
