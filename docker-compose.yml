@@ -3,10 +3,12 @@ version: '3.6'
 services:
     backend:
         image: titanium/babylon-backend
-        ports: 
+        build: backend/
+        ports:
             - 3000:3000
 
     frontend:
         image: titanium/babylon-frontend
-        ports: 
+        build: frontend/
+        ports:
             - 8080:8080
