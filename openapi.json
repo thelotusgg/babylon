@@ -14,9 +14,19 @@
         }
     },
     "paths": {
-        "/translation/{key}": {
+        "/project/{projectId}/translation/{key}": {
             "get": {
                 "parameters": [
+                    {
+                        "in": "path",
+                        "name": "key",
+                        "description": "The translation key",
+                        "example": "global.user.welcome",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "required": true
+                    },
                     {
                         "in": "path",
                         "name": "key",
@@ -42,7 +52,7 @@
                 }
             }
         },
-        "/translation": {
+        "/project/{projectId}/translation": {
             "get": {
                 "operationId": "searchByPatterns",
                 "description": "Seraches for the given key-patterns",
@@ -108,6 +118,9 @@
             "Phrase": {
                 "type": "object",
                 "properties": {
+                    "projectId": {
+                        "type": "number"
+                    },
                     "key": {
                         "type": "string",
                         "description": "The key used to identify a phrase",
@@ -126,6 +139,9 @@
                 "type": "object",
                 "properties": {
                     "proposalId": {
+                        "type": "number"
+                    },
+                    "projectId": {
                         "type": "number"
                     },
                     "author": {
@@ -164,6 +180,9 @@
                         "type": "string",
                         "description": "RFC 5646",
                         "example": "en-US"
+                    },
+                    "projectId": {
+                        "type": "number"
                     },
                     "template": {
                         "type": "string",
