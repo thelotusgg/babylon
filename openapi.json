@@ -1,0 +1,128 @@
+{
+    "openapi": "3.0.1",
+    "info": {
+        "description": "Babylon is a platform for crowd translation",
+        "license": {
+            "name": "MIT",
+            "url": "https://github.com/cntitanium/babylon/blob/dev/LICENSE"
+        },
+        "title": "Babylon",
+        "version": "1.0.0",
+        "contact": {
+            "name": "Codename Titanium",
+            "url": "https://github.com/cntitanium"
+        }
+    },
+    "paths": {
+        "/translation": {
+            "get": {
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "key",
+                        "description": "The translation key",
+                        "example": "global.user.welcome",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Ok",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Phrase"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "Phrase": {
+                "type": "object",
+                "properties": {
+                    "key": {
+                        "type": "string",
+                        "description": "The key used to identify a phrase",
+                        "format": "([a-zA-Z0-9]\\.?)+",
+                        "example": "global.user.welcome"
+                    },
+                    "translations": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/Translation"
+                        }
+                    }
+                }
+            },
+            "Proposal": {
+                "type": "object",
+                "properties": {
+                    "proposalId": {
+                        "type": "number"
+                    },
+                    "author": {
+                        "type": "string",
+                        "format": "UUID"
+                    },
+                    "created": {
+                        "type": "number",
+                        "format": "Unix Timestamp"
+                    },
+                    "status": {
+                        "type": "object",
+                        "$ref": "#/components/schemas/ProposalStatus"
+                    },
+                    "key": {
+                        "type": "string",
+                        "format": "([a-zA-Z0-9]\\.?)+",
+                        "example": "global.user.welcome"
+                    },
+                    "language": {
+                        "type": "string",
+                        "description": "RFC 5646",
+                        "example": "en-US"
+                    },
+                    "template": {
+                        "type": "string",
+                        "example": "Welcome {{ user }}!"
+                    }
+
+                }
+            },
+            "Translation": {
+                "type": "object",
+                "properties": {
+                    "language": {
+                        "type": "string",
+                        "description": "RFC 5646",
+                        "example": "en-US"
+                    },
+                    "template": {
+                        "type": "string",
+                        "example": "Welcome {{ user }}!"
+                    },
+                    "proposalId": {
+                        "type": "number",
+                        "example": "1337"
+                    }
+                }
+            },
+            "ProposalStatus": {
+                "type": "string",
+                "enum": [
+                    "PROPOSED",
+                    "ACCEPTED",
+                    "REJECTED",
+                    "CHANGE_REQUESTED"
+                ]
+            }
+        }
+    }
+}
