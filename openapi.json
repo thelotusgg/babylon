@@ -14,17 +14,18 @@
         }
     },
     "paths": {
-        "/translation": {
+        "/translation/{key}": {
             "get": {
                 "parameters": [
                     {
-                        "in": "query",
+                        "in": "path",
                         "name": "key",
                         "description": "The translation key",
                         "example": "global.user.welcome",
                         "schema": {
                             "type": "string"
-                        }
+                        },
+                        "required": true
                     }
                 ],
                 "responses": {
@@ -34,6 +35,66 @@
                             "application/json": {
                                 "schema": {
                                     "$ref": "#/components/schemas/Phrase"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/translation": {
+            "get": {
+                "operationId": "searchByPatterns",
+                "description": "Seraches for the given key-patterns",
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "keyPatterns",
+                        "description": "The comma separated translation key patterns",
+                        "example": "global.user.*,game.user.*,babylon.*",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Ok",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "languages": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "language": {
+                                                        "type": "string",
+                                                        "example": "en_US"
+                                                    },
+                                                    "phrases": {
+                                                        "type": "array",
+                                                        "items": {
+                                                            "type": "object",
+                                                            "properties": {
+                                                                "key": {
+                                                                    "type": "string",
+                                                                    "example": "global.user.welcome"
+                                                                },
+                                                                "value": {
+                                                                    "type": "string",
+                                                                    "example": "Welcome {{ user }}!"
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
                                 }
                             }
                         }
