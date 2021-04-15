@@ -19,6 +19,16 @@
                 "parameters": [
                     {
                         "in": "path",
+                        "name": "projectId",
+                        "description": "The project id",
+                        "example": "1337",
+                        "schema": {
+                            "type": "number"
+                        },
+                        "required": true
+                    },
+                    {
+                        "in": "path",
                         "name": "key",
                         "description": "The translation key",
                         "example": "global.user.welcome",
@@ -47,6 +57,16 @@
                 "operationId": "searchByPatterns",
                 "description": "Searches for the given key-patterns",
                 "parameters": [
+                    {
+                        "in": "path",
+                        "name": "projectId",
+                        "description": "The project id",
+                        "example": "1337",
+                        "schema": {
+                            "type": "number"
+                        },
+                        "required": true
+                    },
                     {
                         "in": "query",
                         "name": "keyPatterns",
