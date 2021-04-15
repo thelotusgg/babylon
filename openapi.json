@@ -45,7 +45,7 @@
         "/project/{projectId}/translation": {
             "get": {
                 "operationId": "searchByPatterns",
-                "description": "Seraches for the given key-patterns",
+                "description": "Searches for the given key-patterns",
                 "parameters": [
                     {
                         "in": "query",
@@ -143,7 +143,6 @@
                         "format": "Unix Timestamp"
                     },
                     "status": {
-                        "type": "object",
                         "$ref": "#/components/schemas/ProposalStatus"
                     },
                     "key": {
