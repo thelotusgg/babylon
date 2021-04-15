@@ -6,7 +6,28 @@ on:
   pull_request:
     branches: [ dev, master ]
 
+env:
+  # TODO: Change variable to your image's name.
+  IMAGE_NAME: titanium/babylon-backend
+
 jobs:
+
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Run tests
+        run: |
+          if [ -f docker-compose.test.yml ]; then
+            docker-compose --file docker-compose.test.yml build
+            docker-compose --file docker-compose.test.yml run sut
+          else
+            docker build . --file Dockerfile
+          fi
+        working-directory: ./backend
+
   build:
     runs-on: ubuntu-latest
 
@@ -24,3 +45,17 @@ jobs:
       working-directory: ./backend
     - run: npm run build
       working-directory: ./backend
+
+  build-docker:
+    # Ensure test job passes before pushing image.
+    needs: test
+
+    runs-on: ubuntu-latest
+    if: github.event_name == 'push'
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Build image
+        run: docker build . --file Dockerfile --tag $IMAGE_NAME
+        working-directory: ./backend
