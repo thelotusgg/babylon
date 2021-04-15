@@ -1,22 +1,26 @@
-FROM node:lts-alpine
+FROM node:14.16.1-alpine As development
 
-# install simple http server for serving static content
-RUN npm install -g http-server
+WORKDIR /usr/src/app
 
-# make the 'app' folder the current working directory
-WORKDIR /app
-
-# copy both 'package.json' and 'package-lock.json' (if available)
+# Step 1: copy package.json and install dependencies with ci (without dependency resolution)
 COPY package*.json ./
+RUN npm ci
 
-# install project dependencies
-RUN npm install
-
-# copy project files and folders to the current working directory (i.e. 'app' folder)
+# Step 2: Copy code and build
 COPY . .
-
-# build app for production with minification
 RUN npm run build
 
-EXPOSE 8080
+FROM node:14.16.1-alpine as production
+
+ARG NODE_ENV=production
+ENV NODE_ENV=${NODE_ENV}
+
+WORKDIR /usr/src/app
+
+RUN npm install -g http-server
+
+# Copy everything from development and prune dev dependencies
+COPY --from=development /usr/src/app .
+RUN npm prune --production
+
 CMD [ "http-server", "dist" ]

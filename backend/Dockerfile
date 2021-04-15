@@ -2,12 +2,12 @@ FROM node:14.16.1-alpine As development
 
 WORKDIR /usr/src/app
 
+# Step 1: copy package.json and install dependencies with ci (without dependency resolution)
 COPY package*.json ./
+RUN npm ci
 
-RUN npm install
-
+# Step 2: Copy code and build
 COPY . .
-
 RUN npm run build
 
 FROM node:14.16.1-alpine as production
@@ -17,12 +17,8 @@ ENV NODE_ENV=${NODE_ENV}
 
 WORKDIR /usr/src/app
 
-COPY package*.json ./
-
-RUN npm install --only=production
-
-COPY . .
-
-COPY --from=development /usr/src/app/dist ./dist
+# Copy everything from development and prune dev dependencies
+COPY --from=development /usr/src/app .
+RUN npm prune --production
 
 CMD ["node", "dist/main"]
