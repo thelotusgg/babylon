@@ -6,7 +6,7 @@
 	"scripts": {
 		"build": "nest build",
 		"start": "nest start",
-		"lint": "npx eslint ."
+		"lint": "npx eslint ./src"
 	},
 	"keywords": [],
 	"author": "",
@@ -32,6 +32,7 @@
 		"@typescript-eslint/parser": "^4.22.0",
 		"eslint": "^7.24.0",
 		"eslint-config-airbnb-base": "^14.2.1",
+		"eslint-config-airbnb-typescript": "^12.3.1",
 		"eslint-config-prettier": "^8.2.0",
 		"eslint-plugin-import": "^2.22.1",
 		"jest": "^26.6.3",
