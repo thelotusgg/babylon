@@ -19,6 +19,7 @@ const i18n = createI18n({
   locale: navigator.language,
   fallbackLocale: 'en',
   messages: locales,
+  globalInjection: true,
 });
 
 createApp(App).use(i18n).use(router)
