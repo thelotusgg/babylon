@@ -1,5 +1,9 @@
 {
     "app": {
-        "name": "Babylon"
+        "name": "Babylon",
+        "page": {
+            "dashboard": "Dashboard",
+            "project": "Project: {name}"
+        }
     }
 }

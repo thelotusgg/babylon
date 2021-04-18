@@ -1,4 +1,5 @@
 import Dashboard from '@/views/Dashboard.vue';
+import Project from '@/views/Project.vue';
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router';
 
 const routes: Array<RouteRecordRaw> = [
@@ -6,6 +7,11 @@ const routes: Array<RouteRecordRaw> = [
     path: '/',
     name: 'dashboard',
     component: Dashboard,
+  },
+  {
+    path: '/project/',
+    name: 'project',
+    component: Project,
   },
 ];
 
