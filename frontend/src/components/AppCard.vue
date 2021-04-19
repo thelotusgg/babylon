@@ -3,7 +3,7 @@
     class="group flex bg-gray-50 shadow-sm p-4 rounded-md border-l-4 relative gap-4"
     :class="'border-' + color">
     <div class="flex-grow">
-      <h1 v-if="title" class="text-gray-800 text-2xl">{{ title }}</h1>
+      <h1 v-if="title" class="text-gray-700 text-2xl">{{ title }}</h1>
       <p v-if="description" class="text-gray-600">
         {{ description }}
       </p>
