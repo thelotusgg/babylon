@@ -1,20 +1,16 @@
 <template>
   <div>
-    <div id="nav" class="bg-green-100">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view />
-    <font-awesome-icon
-      :icon="['fas', 'bars']"
-      class="text-4xl hover:text-green-500 hover:cursor-pointer"
-    />
-    <font-awesome-icon
-      :icon="['fab', 'github']"
-      class="text-4xl hover:text-yellow-500 hover:cursor-pointer"
-    />
-    </div>
+    <AppNavbar/>
+    <router-view class="px-2 pt-8 pb-6 2xl:w-layoutContainer 2xl:mx-auto"/>
+  </div>
 </template>
 
-<style>
-</style>
+<script lang="ts">
+import AppNavbar from '@/components/AppNavbar.vue';
+
+export default {
+  components: {
+    AppNavbar,
+  },
+};
+</script>
