@@ -9,7 +9,7 @@ const routes: Array<RouteRecordRaw> = [
     component: Dashboard,
   },
   {
-    path: '/project/',
+    path: '/project/:id',
     name: 'project',
     component: Project,
   },
