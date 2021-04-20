@@ -345,7 +345,6 @@
                     },
                     "translations": {
                         "type": "array",
-                        "required": false,
                         "items": {
                             "$ref": "#/components/schemas/Translation"
                         }
