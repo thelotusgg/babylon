@@ -1,6 +1,7 @@
 <template>
   <div
-    class="group flex bg-gray-50 shadow-sm p-4 border-l-4 relative gap-4 hover:shadow-md"
+    class="group flex bg-gray-50 shadow-sm p-4 border-l-4 relative gap-4 transition-shadow
+    hover:shadow-md"
     :class="'border-' + color">
     <div class="flex-grow">
       <h1 v-if="title" class="text-gray-700 text-2xl">{{ title }}</h1>
