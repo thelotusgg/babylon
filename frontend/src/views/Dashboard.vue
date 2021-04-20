@@ -42,12 +42,18 @@ export default {
             title: 'Babylon',
             description: 'Lorem ipsum dolor sit amet,consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.',
             color: 'blue-500',
+            to: {
+              name: 'project',
+            },
           },
           {
 
             title: 'Forum',
             description: 'At vero eos et accusam et justo duo dolores et ea rebum.',
-            color: 'green-300',
+            color: 'green-500',
+            to: {
+              name: 'project',
+            },
           },
         ],
       }, {
@@ -58,12 +64,18 @@ export default {
             title: 'Lobby',
             description: 'Lorem ipsum dolor sit amet,consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.',
             color: 'blue-500',
+            to: {
+              name: 'project',
+            },
           },
           {
 
             title: 'BedWars',
             description: 'At vero eos et accusam et justo duo dolores et ea rebum.',
-            color: 'green-300',
+            color: 'green-500',
+            to: {
+              name: 'project',
+            },
           },
           {
             title: 'Jump Down',
@@ -76,7 +88,10 @@ export default {
 
             title: 'Survival Games',
             description: 'At vero eos et.',
-            color: 'green-300',
+            color: 'green-500',
+            to: {
+              name: 'project',
+            },
           },
         ],
       }, {
@@ -87,6 +102,9 @@ export default {
             title: 'Discord-Bot',
             description: 'Lorem ipsum dolor sit amet,consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.',
             color: 'blue-500',
+            to: {
+              name: 'project',
+            },
           },
         ],
       }],
