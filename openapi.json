@@ -1,7 +1,7 @@
 {
     "openapi": "3.0.1",
     "info": {
-        "description": "Babylon is a platform for crowd translation",
+        "description": "Babylon is a platform for crowd translation.",
         "license": {
             "name": "MIT",
             "url": "https://github.com/cntitanium/babylon/blob/dev/LICENSE"
@@ -13,19 +13,208 @@
             "url": "https://github.com/cntitanium"
         }
     },
+    "tags": [
+        {
+            "name": "Project",
+            "description": "General data separators used to categorize `Phrase`s."
+        },
+        {
+            "name": "Phrase",
+            "description": "Language variables referenced in code. `Translation`s stick to `Phrase`s."
+        }
+    ],
     "paths": {
+        "/project": {
+            "post": {
+                "description": "Create a `Project`.",
+                "tags": [
+                    "Project"
+                ],
+                "requestBody": {
+                    "description": "Data required upon project creation. `projectId` body parameter will be overridden.",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Project"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "$ref": "#/components/responses/200Ok"
+                    }
+                }
+            }
+        },
+        "/project/{projectId}": {
+            "get": {
+                "description": "Read a `Project`.",
+                "tags": [
+                    "Project"
+                ],
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/PathProjectId"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Ok",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Project"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "patch": {
+                "description": "Update a `Project`.",
+                "tags": [
+                    "Project"
+                ],
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/PathProjectId"
+                    }
+                ],
+                "requestBody": {
+                    "description": "Data required upon project creation. `projectId` body parameter will be ignored.",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Project"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "$ref": "#/components/responses/200Ok"
+                    }
+                }
+            },
+            "delete": {
+                "description": "Delete a `Project`.",
+                "tags": [
+                    "Project"
+                ],
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/PathProjectId"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "$ref": "#/components/responses/200Ok"
+                    }
+                }
+            }
+        },
+
+        "/phrase": {
+            "post": {
+                "description": "Create a `Phrase`.",
+                "tags": [
+                    "Phrase"
+                ],
+                "requestBody": {
+                    "description": "Data required upon project creation. `phraseId` body parameter will be overridden.",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Phrase"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "$ref": "#/components/responses/200Ok"
+                    }
+                }
+            }
+        },
+        "/phrase/{phraseId}": {
+            "get": {
+                "description": "Read a `Phrase`.",
+                "tags": [
+                    "Phrase"
+                ],
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/PathPhraseId"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Ok",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Phrase"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "patch": {
+                "description": "Update a `Phrase`.",
+                "tags": [
+                    "Phrase"
+                ],
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/PathPhraseId"
+                    }
+                ],
+                "requestBody": {
+                    "description": "Data required upon phrase creation. `phraseId` body parameter will be ignored.",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Phrase"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "$ref": "#/components/responses/200Ok"
+                    }
+                }
+            },
+            "delete": {
+                "description": "Delete a `Phrase`.",
+                "tags": [
+                    "Phrase"
+                ],
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/PathPhraseId"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "$ref": "#/components/responses/200Ok"
+                    }
+                }
+            }
+        },
+
         "/project/{projectId}/translation/{key}": {
             "get": {
                 "parameters": [
                     {
-                        "in": "path",
-                        "name": "projectId",
-                        "description": "The project id",
-                        "example": "1337",
-                        "schema": {
-                            "type": "number"
-                        },
-                        "required": true
+                        "$ref": "#/components/parameters/PathProjectId"
                     },
                     {
                         "in": "path",
@@ -133,6 +322,8 @@
                     },
                     "name": {
                         "type": "string",
+                        "minLength": 3,
+                        "maxLength": 128,
                         "example": "Babylon"
                     }
                 }
@@ -140,6 +331,9 @@
             "Phrase": {
                 "type": "object",
                 "properties": {
+                    "phraseId": {
+                        "type": "number"
+                    },
                     "projectId": {
                         "type": "number"
                     },
@@ -151,6 +345,7 @@
                     },
                     "translations": {
                         "type": "array",
+                        "required": false,
                         "items": {
                             "$ref": "#/components/schemas/Translation"
                         }
@@ -202,9 +397,6 @@
                         "description": "RFC 5646",
                         "example": "en-US"
                     },
-                    "projectId": {
-                        "type": "number"
-                    },
                     "template": {
                         "type": "string",
                         "example": "Welcome {{ user }}!"
@@ -223,6 +415,33 @@
                     "REJECTED",
                     "CHANGE_REQUESTED"
                 ]
+            }
+        },
+        "responses": {
+            "200Ok": {
+                "description": "Everything went well. Following [CQS principles](https://en.wikipedia.org/wiki/Command%E2%80%93query_separation)."
+            }
+        },
+        "parameters": {
+            "PathProjectId": {
+                "description": "The `Project` id",
+                "in": "path",
+                "name": "projectId",
+                "example": "1337",
+                "schema": {
+                    "type": "number"
+                },
+                "required": true
+            },
+            "PathPhraseId": {
+                "description": "The `Phrase` id",
+                "in": "path",
+                "name": "phraseId",
+                "example": "42",
+                "schema": {
+                    "type": "number"
+                },
+                "required": true
             }
         }
     }
