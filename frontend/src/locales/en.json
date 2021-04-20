@@ -3,7 +3,12 @@
         "name": "Babylon",
         "page": {
             "dashboard": "Dashboard",
-            "project": "Project: {name}"
+            "project": "Project: {name}",
+            "user": {
+                "index": "User",
+                "settings": "Settings",
+                "signout": "Sign out"
+            }
         }
     }
 }
