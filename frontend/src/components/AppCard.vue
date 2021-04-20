@@ -1,6 +1,6 @@
 <template>
   <div
-    class="group flex bg-gray-50 shadow-sm p-4 rounded-md border-l-4 relative gap-4"
+    class="group flex bg-gray-50 shadow-sm p-4 border-l-4 relative gap-4 hover:shadow-md"
     :class="'border-' + color">
     <div class="flex-grow">
       <h1 v-if="title" class="text-gray-700 text-2xl">{{ title }}</h1>
@@ -10,7 +10,8 @@
     </div>
     <div class="flex items-center">
       <font-awesome-icon :icon="['fas', 'chevron-right']" class="text-3xl text-gray-300
-      group-hover:text-gray-700"/>
+        transition-transform duration-500 transform group-hover:translate-x-2
+        group-hover:text-gray-700"/>
     </div>
     <router-link
       v-if="to"
