@@ -24,7 +24,6 @@ export default {
       _id: string,
       title?: string;
       projcts: ({
-        _id: string,
         title?: string;
         description?: string;
         color?: string,
@@ -40,16 +39,21 @@ export default {
         title: 'Website',
         projcts: [
           {
-            _id: 'sdfgsdfsddasdadf',
             title: 'Babylon',
             description: 'Lorem ipsum dolor sit amet,consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.',
             color: 'blue-500',
+            to: {
+              name: 'project',
+            },
           },
           {
-            _id: 'gadsgadsgsag',
+
             title: 'Forum',
             description: 'At vero eos et accusam et justo duo dolores et ea rebum.',
             color: 'green-500',
+            to: {
+              name: 'project',
+            },
           },
         ],
       }, {
@@ -57,27 +61,37 @@ export default {
         title: 'Minecraft',
         projcts: [
           {
-            _id: 'gdsagsdagsdag',
             title: 'Lobby',
             description: 'Lorem ipsum dolor sit amet,consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.',
             color: 'blue-500',
+            to: {
+              name: 'project',
+            },
           },
           {
-            _id: 'sdagadsgdsagdsag',
+
             title: 'BedWars',
             description: 'At vero eos et accusam et justo duo dolores et ea rebum.',
             color: 'green-500',
+            to: {
+              name: 'project',
+            },
           },
           {
-            _id: 'gsdagdsgdsag',
             title: 'Jump Down',
             description: 'Diam nonumy eirmod tempor invidunt ut labore et dolo.',
+            to: {
+              name: 'project',
+            },
           },
           {
-            _id: 'fdsagfdagasdg',
+
             title: 'Survival Games',
             description: 'At vero eos et.',
             color: 'green-500',
+            to: {
+              name: 'project',
+            },
           },
         ],
       }, {
@@ -85,10 +99,12 @@ export default {
         title: 'Discord',
         projcts: [
           {
-            _id: 'adasdasfasfasf',
             title: 'Discord-Bot',
             description: 'Lorem ipsum dolor sit amet,consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.',
             color: 'blue-500',
+            to: {
+              name: 'project',
+            },
           },
         ],
       }],

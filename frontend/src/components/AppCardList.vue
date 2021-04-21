@@ -4,11 +4,11 @@
     <div v-if="cards" class="grid gap-4 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
       <AppCard
         v-for="card in cards"
-        :key="card._id"
+        :key="card"
         :title="card.title"
         :description="card.description"
         :color="card.color"
-        :to="{name: 'project', params: {id: card._id}}"
+        :to="card.to"
         class="flex-1"/>
     </div>
   </div>
