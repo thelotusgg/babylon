@@ -4,6 +4,9 @@ module.exports = {
   darkMode: 'media',
   theme: {
     extend: {
+      maxWidth: {
+        layoutContainer: '100rem',
+      },
       spacing: {
         layoutContainer: '100rem',
       },
