@@ -3,7 +3,7 @@ import locales from '@/locales';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import {
-  faBars, faChevronRight, faCogs, faCubes, faSignOutAlt, faTimes,
+  faBars, faChevronDown, faChevronRight, faCogs, faCubes, faLanguage, faSignOutAlt, faTimes, faUser,
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import { createApp } from 'vue';
@@ -13,12 +13,15 @@ import router from './router';
 
 library.add(
   faBars,
+  faChevronDown,
   faChevronRight,
   faCogs,
   faCubes,
   faGithub,
+  faLanguage,
   faSignOutAlt,
   faTimes,
+  faUser,
 );
 
 const i18n = createI18n({
