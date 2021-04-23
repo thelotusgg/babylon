@@ -1,8 +1,20 @@
 <template>
-  <router-link tag="li" :to="to">
-    <font-awesome-icon :icon="icon" v-if="icon"/>
-    <span v-if="title">{{ $t(title) }}</span>
-  </router-link>
+  <li
+    class="text-lg hover:bg-gray-900"
+    :class="{'lg:text-base lg:hover:bg-gray-100': (type == 'dropdown')}">
+    <router-link
+      :to="to"
+      class="flex gap-2 px-4 py-3 items-center transition-colors group lg:h-full"
+      :class="{'lg:px-2 py-1 lg:type-dropdown': (type == 'dropdown')}">
+      <font-awesome-icon
+        :icon="icon"
+        v-if="icon"
+        class="text-2xl transition-colors group-hover:text-green-500"
+        :class="{'lg:text-base': (type == 'dropdown')}"
+      />
+      <span v-if="title">{{ $t(title) }}</span>
+    </router-link>
+  </li>
 </template>
 
 <script lang="ts">
@@ -21,6 +33,27 @@ export default defineComponent({
       type: Object,
       required: true,
     },
+    type: {
+      type: String,
+      default: 'default',
+    },
   },
 });
 </script>
+
+<style lang="scss" scoped>
+.router-link-exact-active {
+  @apply bg-gray-900;
+  > svg {
+    @apply text-green-500;
+  }
+  &.lg\:type-dropdown {
+    @screen lg {
+      @apply bg-gray-100;
+      > svg {
+        @apply text-green-500;
+      }
+    }
+  }
+}
+</style>
