@@ -1,9 +1,10 @@
 <template>
-  <nav class="bg-gray-800">
-    <div class="mx-auto lg:px-2 2xl:px-0 2xl:max-w-layoutContainer">
+  <nav class="bg-gray-800 text-gray-50 w-full fixed z-30">
+    <div class="mx-auto lg:px-2 lg:flex lg:gap-4 2xl:px-0 2xl:max-w-layoutContainer">
       <div class="flex">
-        <div class="flex items-center justify-center relative text-center cursor-pointer
-        text-gray-200 hover:text-green-500 lg:hidden w-12 p-2 text-4xl">
+        <div
+          class="flex items-center justify-center text-center cursor-pointer z-10
+          transition-colors hover:text-green-500 lg:hidden w-12 p-2 text-4xl">
           <font-awesome-icon
             :icon="['fas', 'bars']"
             @click="openMainMenu"
@@ -16,15 +17,15 @@
 
         <router-link
           :to="{name: 'dashboard'}"
-          tag="div"
-          class="flex-1 flex p-2 items-center justify-center font-thin text-4xl uppercase
-          text-gray-50 gap-2 lg:justify-start">
+          class="flex-1 flex p-2 items-center justify-center font-thin text-4xl
+          uppercase gap-2 lg:justify-start">
           <font-awesome-icon :icon="['fas', 'language']"/>
           <span class="hidden sm:block">{{ $t(appName) }}</span>
         </router-link>
 
-        <div class="flex items-center justify-center relative text-center cursor-pointer
-        text-gray-200 hover:text-green-500 lg:hidden w-12 p-2 text-4xl">
+        <div
+          class="flex items-center justify-center text-center cursor-pointer z-10
+          transition-colors hover:text-green-500 lg:hidden w-12 p-2 text-4xl">
           <font-awesome-icon
             :icon="['fas', 'user']"
             @click="openUserMenu"
@@ -35,15 +36,61 @@
             v-if="userMenuIsOpen"/>
         </div>
       </div>
+
+      <AppNavbarMenu
+        class="lg:flex-grow"
+        :class="{
+          'translate-x-0': mainMenuIsOpen,
+          '-translate-x-full lg:translate-x-0': !mainMenuIsOpen,
+        }">
+        <AppNavbarMenuItem
+          v-for="mainMenuItem in mainMenu.items"
+          :key="mainMenuItem"
+          :icon="mainMenuItem.icon"
+          :title="$t(mainMenuItem.title)"
+          :to="mainMenuItem.to"/>
+      </AppNavbarMenu>
+
+      <div id="userMenu" class="lg:relative">
+        <div
+          class="hidden text-lg gap-4 px-4 py-3 items-center group h-full cursor-pointer lg:flex">
+          <span>Doe, John</span>
+          <font-awesome-icon
+            :icon="['fas', 'user']"
+            class="text-2xl transition-colors group-hover:text-green-500"
+          />
+        </div>
+      <AppNavbarMenu
+        class="lg:flex-col lg:absolute lg:bg-gray-50 lg:text-gray-700 lg:hidden lg:right-0
+        lg:shadow-sm"
+        :class="{
+          '-translate-x-0': userMenuIsOpen,
+          'translate-x-full lg:translate-x-0': !userMenuIsOpen,
+        }">
+        <AppNavbarMenuItem
+          :type="userMenu.type"
+          v-for="userMenuItem in userMenu.items"
+          :key="userMenuItem"
+          :icon="userMenuItem.icon"
+          :title="$t(userMenuItem.title)"
+          :to="userMenuItem.to"/>
+      </AppNavbarMenu>
+      </div>
     </div>
   </nav>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue';
+import AppNavbarMenu from '@/components/AppNavbarMenu.vue';
+import AppNavbarMenuItem from '@/components/AppNavbarMenuItem.vue';
 
 export default defineComponent({
   name: 'AppNavbar',
+  components: {
+    AppNavbarMenu,
+    AppNavbarMenuItem,
+  },
   props: {
     appName: {
       type: String,
@@ -53,35 +100,102 @@ export default defineComponent({
   data(): {
     mainMenuIsOpen: boolean;
     userMenuIsOpen: boolean;
+
+    mainMenu: {
+      items: {
+        title?: string;
+        icon: string[];
+        to: {
+          name: string,
+          params?: {
+            id: string,
+          };
+        }
+      }[];
+    };
+    userMenu: {
+      type: string;
+      items: {
+        title?: string;
+        icon: string[];
+        to: {
+          name: string,
+          params?: {
+            id: string,
+          };
+        }
+      }[];
+    };
     } {
     return {
       mainMenuIsOpen: false,
       userMenuIsOpen: false,
+
+      mainMenu: {
+        items: [
+          {
+            title: 'app.page.dashboard',
+            icon: ['fas', 'cubes'],
+            to: {
+              name: 'dashboard',
+            },
+          },
+        ],
+      },
+      userMenu: {
+        type: 'dropdown',
+        items: [
+          {
+            title: 'app.page.user.settings',
+            icon: ['fas', 'cogs'],
+            to: {
+              name: 'user.settings',
+            },
+          },
+          {
+            title: 'app.page.user.signout',
+            icon: ['fas', 'sign-out-alt'],
+            to: {
+              name: 'user.signout',
+            },
+          },
+        ],
+      },
     };
   },
   methods: {
     openMainMenu(): void {
       if (this.userMenuIsOpen) {
         this.userMenuIsOpen = false;
+        setTimeout((): void => {
+          this.mainMenuIsOpen = true;
+        }, 300);
       } else {
-        document.documentElement.style.overflow = 'hidden';
+        document.body.classList.add('overflow-hidden');
+        document.body.classList.add('lg:overflow-auto');
+        this.mainMenuIsOpen = true;
       }
-      this.mainMenuIsOpen = true;
     },
     closeMainMenu(): void {
-      document.documentElement.style.overflow = 'auto';
+      document.body.classList.remove('overflow-hidden');
+      document.body.classList.remove('lg:overflow-auto');
       this.mainMenuIsOpen = false;
     },
     openUserMenu(): void {
       if (this.mainMenuIsOpen) {
         this.mainMenuIsOpen = false;
+        setTimeout((): void => {
+          this.userMenuIsOpen = true;
+        }, 300);
       } else {
-        document.documentElement.style.overflow = 'hidden';
+        document.body.classList.add('overflow-hidden');
+        document.body.classList.add('lg:overflow-auto');
+        this.userMenuIsOpen = true;
       }
-      this.userMenuIsOpen = true;
     },
     closeUserMenu(): void {
-      document.documentElement.style.overflow = 'auto';
+      document.body.classList.remove('overflow-hidden');
+      document.body.classList.remove('lg:overflow-auto');
       this.userMenuIsOpen = false;
     },
   },
@@ -97,3 +211,15 @@ export default defineComponent({
   },
 });
 </script>
+
+<style lang="scss" scoped>
+@screen lg {
+  #userMenu {
+    &:hover {
+      > ul {
+        @apply flex;
+      }
+    }
+  }
+}
+</style>
