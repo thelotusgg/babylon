@@ -9,9 +9,26 @@ const routes: Array<RouteRecordRaw> = [
     component: Dashboard,
   },
   {
-    path: '/project/',
+    path: '/project/:id',
     name: 'project',
     component: Project,
+  },
+  {
+    path: '/user',
+    name: 'user',
+    component: Project,
+    children: [
+      {
+        path: 'settings',
+        name: 'user.settings',
+        component: Project,
+      },
+      {
+        path: '/signout',
+        name: 'user.signout',
+        component: Project,
+      },
+    ],
   },
 ];
 
