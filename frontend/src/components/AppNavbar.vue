@@ -1,5 +1,5 @@
 <template>
-  <nav class="bg-gray-800 text-gray-50 w-full fixed z-30">
+  <nav class="bg-gray-800 dark:bg-black text-gray-50 w-full fixed z-30">
     <div class="mx-auto lg:px-2 lg:flex lg:gap-4 2xl:px-0 2xl:max-w-layoutContainer">
       <div class="flex">
         <div
@@ -18,9 +18,9 @@
         <router-link
           :to="{name: 'dashboard'}"
           @click="closeOpenMenu"
-          class="flex-1 flex p-2 items-center justify-center font-thin text-4xl
+          class="group flex-1 flex p-2 items-center justify-center font-thin text-4xl
           uppercase gap-2 lg:justify-start">
-          <font-awesome-icon :icon="['fas', 'language']"/>
+          <font-awesome-icon :icon="['fas', 'language']" class="group-hover:text-green-500"/>
           <span class="hidden sm:block">{{ $t(appName) }}</span>
         </router-link>
 
@@ -63,8 +63,8 @@
           />
         </div>
       <AppNavbarMenu
-        class="right-0 lg:flex-col lg:absolute lg:bg-gray-50 lg:text-gray-700 lg:hidden flex-grow
-        lg:shadow-sm"
+        class="right-0 flex-grow lg:flex-col lg:absolute lg:bg-gray-50 lg:dark:bg-gray-800
+        lg:text-gray-700 lg:dark:text-gray-50 lg:hidden lg:shadow-sm"
         :class="{
           '-translate-x-0': userMenuIsOpen,
           'translate-x-full lg:translate-x-0': !userMenuIsOpen,
@@ -85,8 +85,8 @@
   <div
     v-if="(mainMenuIsOpen || userMenuIsOpen)"
     @click="closeOpenMenu"
-    class="absolute w-full h-screen transition-opacity bg-opacity-50 bg-gray-900 z-20 cursor-pointer
-    lg:hidden"
+    class="absolute w-full h-screen transition-color transition-opacity bg-opacity-50 duration-300
+    dark:bg-opacity-70 bg-gray-900 dark:bg-black z-20 cursor-pointer lg:hidden"
   ></div>
 </template>
 
