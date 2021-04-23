@@ -1,7 +1,8 @@
 <template>
   <li
-    class="text-lg hover:bg-gray-900"
-    :class="{'lg:text-base lg:hover:bg-gray-100': (type == 'dropdown')}">
+    class="text-lg hover:bg-gray-900 dark:hover:bg-black"
+    :class="{'lg:text-base lg:dark:bg-black lg:hover:bg-gray-100 lg:dark:hover:bg-black':
+    (type == 'dropdown')}">
     <router-link
       :to="to"
       class="flex gap-2 px-4 py-3 items-center transition-colors group lg:h-full"
@@ -43,13 +44,13 @@ export default defineComponent({
 
 <style lang="scss" scoped>
 .router-link-exact-active {
-  @apply bg-gray-900;
+  @apply bg-gray-900 dark:bg-black;
   > svg {
     @apply text-green-500;
   }
   &.lg\:type-dropdown {
     @screen lg {
-      @apply bg-gray-100;
+      @apply bg-gray-100 dark:bg-black;
       > svg {
         @apply text-green-500;
       }
