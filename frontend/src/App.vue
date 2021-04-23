@@ -1,7 +1,7 @@
 <template>
   <div>
     <AppNavbar/>
-    <router-view class="px-2 pt-20 lg:pt-4 pb-6 2xl:px-0 2xl:w-layoutContainer 2xl:mx-auto"/>
+    <router-view class="px-2 pt-20 pb-6 2xl:px-0 2xl:w-layoutContainer 2xl:mx-auto"/>
   </div>
 </template>
 

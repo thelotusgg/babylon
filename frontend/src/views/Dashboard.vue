@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1 class="text-3xl text-gray-600 mb-4">{{ $t("app.page.dashboard")}}</h1>
+    <h1 class="text-3xl text-gray-600 dark:text-gray-300 mb-4">{{ $t("app.page.dashboard")}}</h1>
     <div class="flex flex-col gap-8">
       <AppCardList
         v-for="projectCategory in projectCategories"
