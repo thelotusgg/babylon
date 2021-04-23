@@ -63,7 +63,7 @@
           />
         </div>
       <AppNavbarMenu
-        class="lg:flex-col lg:absolute lg:bg-gray-50 lg:text-gray-700 lg:hidden lg:right-0
+        class="right-0 lg:flex-col lg:absolute lg:bg-gray-50 lg:text-gray-700 lg:hidden flex-grow
         lg:shadow-sm"
         :class="{
           '-translate-x-0': userMenuIsOpen,
@@ -81,6 +81,13 @@
       </div>
     </div>
   </nav>
+
+  <div
+    v-if="(mainMenuIsOpen || userMenuIsOpen)"
+    @click="closeOpenMenu"
+    class="absolute w-full h-screen transition-opacity bg-opacity-50 bg-gray-900 z-20 cursor-pointer
+    lg:hidden"
+  ></div>
 </template>
 
 <script lang="ts">
