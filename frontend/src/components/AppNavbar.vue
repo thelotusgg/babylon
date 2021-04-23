@@ -17,6 +17,7 @@
 
         <router-link
           :to="{name: 'dashboard'}"
+          @click="closeOpenMenu"
           class="flex-1 flex p-2 items-center justify-center font-thin text-4xl
           uppercase gap-2 lg:justify-start">
           <font-awesome-icon :icon="['fas', 'language']"/>
@@ -48,7 +49,8 @@
           :key="mainMenuItem"
           :icon="mainMenuItem.icon"
           :title="$t(mainMenuItem.title)"
-          :to="mainMenuItem.to"/>
+          :to="mainMenuItem.to"
+          @click="closeMainMenu"/>
       </AppNavbarMenu>
 
       <div id="userMenu" class="lg:relative">
@@ -73,7 +75,8 @@
           :key="userMenuItem"
           :icon="userMenuItem.icon"
           :title="$t(userMenuItem.title)"
-          :to="userMenuItem.to"/>
+          :to="userMenuItem.to"
+          @click="closeUserMenu"/>
       </AppNavbarMenu>
       </div>
     </div>
@@ -198,15 +201,18 @@ export default defineComponent({
       document.body.classList.remove('lg:overflow-auto');
       this.userMenuIsOpen = false;
     },
-  },
-  watch: {
-    $route() {
+    closeOpenMenu(): void {
       if (this.mainMenuIsOpen) {
         this.closeMainMenu();
       }
       if (this.userMenuIsOpen) {
         this.closeUserMenu();
       }
+    },
+  },
+  watch: {
+    $route() {
+      this.closeOpenMenu();
     },
   },
 });
