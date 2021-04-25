@@ -1,20 +1,9 @@
 <template>
   <div
-    class="group flex bg-gray-50 dark:bg-gray-800 shadow-sm p-4 border-l-4 relative gap-4
-    transition-shadow duration-500 hover:shadow-md"
-    :class="'border-' + color">
-    <div class="flex-grow">
-      <h1 v-if="title" class="text-gray-700 dark:text-gray-200 text-2xl">{{ title }}</h1>
-      <p v-if="description" class="text-gray-600 dark:text-gray-200 ">
-        {{ description }}
-      </p>
-    </div>
-    <div class="flex items-center">
-      <font-awesome-icon
-      :icon="['fas', 'chevron-right']"
-      class="text-3xl text-gray-300 transition-transform duration-500 transform
-      group-hover:translate-x-2 group-hover:text-gray-700 dark:group-hover:text-gray-50"/>
-    </div>
+    class="group bg-gray-50 dark:bg-gray-800 shadow-sm p-4 relative
+    transition-shadow duration-500"
+    :class="{'hover:shadow-md': to, 'border-l-4': borderColor, [computedBorderColor]: true}">
+    <slot/>
     <router-link
       v-if="to"
       :to="to"
@@ -23,23 +12,23 @@
 </template>
 
 <script lang="ts">
-export default {
+import { defineComponent } from 'vue';
+
+export default defineComponent({
   name: 'AppCard',
   props: {
-    title: {
+    borderColor: {
       type: String,
-    },
-    description: {
-      type: String,
-    },
-    color: {
-      type: String,
-      default: 'gray-400',
       validator: (value: string): boolean => (/^(gray|red|yellow|green|blue|indigo|purple|pink)-(([1-9]00)|50)$/g).test(value),
     },
     to: {
       type: Object,
     },
   },
-};
+  computed: {
+    computedBorderColor(): string {
+      return `border-${this.borderColor}`;
+    },
+  },
+});
 </script>

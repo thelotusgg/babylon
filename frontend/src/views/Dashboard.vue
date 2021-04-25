@@ -5,28 +5,37 @@
       <AppCardList
         v-for="projectCategory in projectCategories"
         :key="projectCategory._id"
-        :cards="projectCategory.projcts"
-        :title="projectCategory.title"/>
-      </div>
+        :title="projectCategory.title">
+        <AppTextCard
+          v-for="project in projectCategory.projects"
+          :key="project"
+          :title="project.title"
+          :description="project.description"
+          :borderColor="project.borderColor"
+          :to="project.to"/>
+      </AppCardList>
+    </div>
   </div>
 </template>
 
 <script lang="ts">
 import AppCardList from '@/components/AppCardList.vue';
+import AppTextCard from '@/components/AppTextCard.vue';
 
 export default {
   name: 'Dashboard',
   components: {
     AppCardList,
+    AppTextCard,
   },
   data(): {
     projectCategories: ({
       title?: string;
-      projcts: ({
+      projects: ({
         _id: string,
         title?: string;
         description?: string;
-        color?: string,
+        borderColor?: string,
         to?: {
           name: string;
           params: {
@@ -39,12 +48,12 @@ export default {
     return {
       projectCategories: [{
         title: 'Website',
-        projcts: [
+        projects: [
           {
             _id: 'fsdfsdfsdfsdfsdf',
             title: 'Babylon',
             description: 'Lorem ipsum dolor sit amet,consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.',
-            color: 'blue-500',
+            borderColor: 'blue-500',
             to: {
               name: 'project',
               params: {
@@ -56,7 +65,7 @@ export default {
             _id: 'fesffasfacfae',
             title: 'Forum',
             description: 'At vero eos et accusam et justo duo dolores et ea rebum.',
-            color: 'green-500',
+            borderColor: 'green-500',
             to: {
               name: 'project',
               params: {
@@ -67,12 +76,12 @@ export default {
         ],
       }, {
         title: 'Minecraft',
-        projcts: [
+        projects: [
           {
             _id: 'asdfasfasffaf',
             title: 'Lobby',
             description: 'Lorem ipsum dolor sit amet,consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.',
-            color: 'blue-500',
+            borderColor: 'blue-500',
             to: {
               name: 'project',
               params: {
@@ -84,7 +93,7 @@ export default {
             _id: 'jklafjhkalsjhfkaljsf',
             title: 'BedWars',
             description: 'At vero eos et accusam et justo duo dolores et ea rebum.',
-            color: 'green-500',
+            borderColor: 'green-500',
             to: {
               name: 'project',
               params: {
@@ -96,6 +105,7 @@ export default {
             _id: 'kladkgdskg',
             title: 'Jump Down',
             description: 'Diam nonumy eirmod tempor invidunt ut labore et dolo.',
+            borderColor: 'gray-500',
             to: {
               name: 'project',
               params: {
@@ -107,7 +117,7 @@ export default {
             _id: 'jfjgjgfjgfjfgj',
             title: 'Survival Games',
             description: 'At vero eos et.',
-            color: 'green-500',
+            borderColor: 'green-500',
             to: {
               name: 'project',
               params: {
@@ -118,12 +128,12 @@ export default {
         ],
       }, {
         title: 'Discord',
-        projcts: [
+        projects: [
           {
             _id: 'gfdhdghdhfdhdfh',
             title: 'Discord-Bot',
             description: 'Lorem ipsum dolor sit amet,consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.',
-            color: 'blue-500',
+            borderColor: 'blue-500',
             to: {
               name: 'project',
               params: {
