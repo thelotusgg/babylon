@@ -21,8 +21,9 @@
 <script lang="ts">
 import AppCardList from '@/components/AppCardList.vue';
 import AppTextCard from '@/components/AppTextCard.vue';
+import { defineComponent } from 'vue';
 
-export default {
+export default defineComponent({
   name: 'Dashboard',
   components: {
     AppCardList,
@@ -32,14 +33,14 @@ export default {
     projectCategories: ({
       title?: string;
       projects: ({
-        _id: string,
+        _id: string;
         title?: string;
         description?: string;
-        borderColor?: string,
+        borderColor?: string;
         to?: {
           name: string;
           params: {
-            id: string,
+            id: string;
           }
         }
       })[];
@@ -145,5 +146,5 @@ export default {
       }],
     };
   },
-};
+});
 </script>
