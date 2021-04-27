@@ -10,5 +10,35 @@
                 "signout": "Ausloggen"
             }
         }
+    },
+    "language": {
+        "de-AT": {
+            "noun": "Deutsch (AT)",
+            "verb": "deutsch"
+        },
+        "de-CH": {
+            "noun": "Deutsch (CH)",
+            "verb": "deutsch"
+        },
+        "de-DE": {
+            "noun": "Deutsch",
+            "verb": "deutsch"
+        },
+        "en-GB": {
+            "noun": "Englisch (UK)",
+            "verb": "englisch"
+        },
+        "en-US": {
+            "noun": "Englisch (US)",
+            "verb": "englisch"
+        },
+        "fr-FR": {
+            "noun": "Französisch",
+            "verb": "französisch"
+        }
+    },
+    "project": {
+        "languages": "Sprachen",
+        "translatedInPercentage": "{percentage}% übersetzt"
     }
 }
