@@ -326,11 +326,21 @@
                     "projectId": {
                         "type": "number"
                     },
+                    "parent": {
+                        "type": "number",
+                        "description": "The id of the parent project"
+                    },
                     "name": {
                         "type": "string",
                         "minLength": 3,
-                        "maxLength": 128,
+                        "maxLength": 32,
                         "example": "Babylon"
+                    },
+                    "description": {
+                        "type": "string",
+                        "minLength": 5,
+                        "maxLength": 128,
+                        "example": "Tool for crowd translation"
                     }
                 }
             },
@@ -390,8 +400,10 @@
                     "template": {
                         "type": "string",
                         "example": "Welcome {{ user }}!"
+                    },
+                    "formatting": {
+                        "$ref": "#/components/schemas/Project"
                     }
-
                 }
             },
             "Translation": {
@@ -406,6 +418,9 @@
                         "type": "string",
                         "example": "Welcome {{ user }}!"
                     },
+                    "formatting": {
+                        "$ref": "#/components/schemas/Project"
+                    },
                     "proposalId": {
                         "type": "number",
                         "example": "1337"
@@ -415,11 +430,18 @@
             "ProposalStatus": {
                 "type": "string",
                 "enum": [
-                    "PROPOSED",
+                    "DRAFT",
+                    "PUBLISHED",
                     "ACCEPTED",
                     "REJECTED",
-                    "CHANGE_REQUESTED"
+                    "CHANGE_REQUESTED",
+                    "HIDDEN"
                 ]
+            },
+            "Formatting": {
+                "type": "string",
+                "description": "The formatting used in a proposal or translation (e.g. Handlebars, ICU, HTML, Minecraft Color Formatting)",
+                "example": "HTML"
             }
         },
         "responses": {
