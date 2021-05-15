@@ -109,7 +109,7 @@
                                 "properties": {
                                     "name": {
                                         "type": "string",
-                                        "The project name"
+                                        "description": "The project name"
                                     },
                                     "description": {
                                         "type": "string",
