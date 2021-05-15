@@ -23,6 +23,12 @@
             "description": "Language variables referenced in code. `Translation`s stick to `Phrase`s."
         }
     ],
+    "servers": [
+        {
+            "description": "localhost alpha-1",
+            "url": "localhost:3000/alpha-v1"
+        }
+    ],
     "paths": {
         "/project": {
             "post": {
