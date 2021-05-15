@@ -37,12 +37,22 @@
                     "Project"
                 ],
                 "requestBody": {
-                    "description": "Data required upon project creation. `projectId` body parameter will be overridden.",
                     "required": true,
                     "content": {
                         "application/json": {
                             "schema": {
-                                "$ref": "#/components/schemas/Project"
+                                "properties": {
+                                    "name": {
+                                        "type": "string",
+                                        "description": "The name of the project",
+                                        "example": "Babylon"
+                                    },
+                                    "description": {
+                                        "type": "string",
+                                        "description": "The description of the project",
+                                        "example": "A tool for crowd translation"
+                                    }                                    
+                                }
                             }
                         }
                     }
@@ -56,7 +66,7 @@
         },
         "/project/{projectId}": {
             "get": {
-                "description": "Read a `Project`.",
+                "description": "Gets a `project` by it's project id.",
                 "tags": [
                     "Project"
                 ],
@@ -75,11 +85,14 @@
                                 }
                             }
                         }
+                    },
+                    "404": {
+                        "$ref": "#/components/responses/404NotFound"
                     }
                 }
             },
             "patch": {
-                "description": "Update a `Project`.",
+                "description": "Updates a `Project` by it's project id.",
                 "tags": [
                     "Project"
                 ],
@@ -89,12 +102,20 @@
                     }
                 ],
                 "requestBody": {
-                    "description": "Data required upon project creation. `projectId` body parameter will be ignored.",
                     "required": true,
                     "content": {
                         "application/json": {
                             "schema": {
-                                "$ref": "#/components/schemas/Project"
+                                "properties": {
+                                    "name": {
+                                        "type": "string",
+                                        "The project name"
+                                    },
+                                    "description": {
+                                        "type": "string",
+                                        "description": "The project description"
+                                    }
+                                }
                             }
                         }
                     }
@@ -106,7 +127,7 @@
                 }
             },
             "delete": {
-                "description": "Delete a `Project`.",
+                "description": "Deletes a `Project` by its project id.",
                 "tags": [
                     "Project"
                 ],
@@ -149,7 +170,7 @@
         },
         "/phrase/{phraseId}": {
             "get": {
-                "description": "Read a `Phrase`.",
+                "description": "Gets a `Phrase` by its `phraseId`.",
                 "tags": [
                     "Phrase"
                 ],
@@ -168,11 +189,17 @@
                                 }
                             }
                         }
+                    },
+                    "404": {
+                        "description": "Not found",
+                        "content": {
+                            "application/json": {}
+                        }
                     }
                 }
             },
             "patch": {
-                "description": "Update a `Phrase`.",
+                "description": "Update a `Phrase` based on its `phraseId`.",
                 "tags": [
                     "Phrase"
                 ],
@@ -199,7 +226,7 @@
                 }
             },
             "delete": {
-                "description": "Delete a `Phrase`.",
+                "description": "Delete a `Phrase` by its `phraseId`.",
                 "tags": [
                     "Phrase"
                 ],
@@ -215,9 +242,13 @@
                 }
             }
         },
-
         "/project/{projectId}/translation/{key}": {
             "get": {
+                "operationId": "getTranslationByProjectAndKey",
+                "description": "Gets a translation using the project id and the key",
+                "tags": [
+                    "Project"
+                ],
                 "parameters": [
                     {
                         "$ref": "#/components/parameters/PathProjectId"
@@ -250,7 +281,10 @@
         "/project/{projectId}/translation": {
             "get": {
                 "operationId": "searchByPatterns",
-                "description": "Searches for the given key-patterns",
+                "description": "Searches for translations. Key-patterns can be passed to filter the results. If none was passed, all translation get returned.",
+                "tags": [
+                    "Project"
+                ],
                 "parameters": [
                     {
                         "in": "path",
@@ -269,8 +303,7 @@
                         "example": "global.user.*,game.user.*,babylon.*",
                         "schema": {
                             "type": "string"
-                        },
-                        "required": true
+                        }
                     }
                 ],
                 "responses": {
@@ -403,6 +436,12 @@
                     },
                     "formatting": {
                         "$ref": "#/components/schemas/Project"
+                    },
+                    "votes": {
+                        "$ref": "#/components/schemas/Votes"
+                    },
+                    "comments": {
+                        "$ref": "#/components/schemas/Comment"
                     }
                 }
             },
@@ -442,11 +481,37 @@
                 "type": "string",
                 "description": "The formatting used in a proposal or translation (e.g. Handlebars, ICU, HTML, Minecraft Color Formatting)",
                 "example": "HTML"
+            },
+            "Votes": {
+                "type": "object",
+                "properties": {
+                    "up": {
+                        "type": "array",
+                        "description": "List of user UUIDs voted up"
+                    },
+                    "down": {
+                        "type": "array",
+                        "description": "List of user UUIDs voted down"
+                    }
+                }
+            },
+            "Comment": {
+                "type": "object",
+                "properties": {
+                    "author": {
+                        "type": "string",
+                        "format": "UUID",
+                        "description": "The author's user id"
+                    }
+                }
             }
         },
         "responses": {
             "200Ok": {
                 "description": "Everything went well. Following [CQS principles](https://en.wikipedia.org/wiki/Command%E2%80%93query_separation)."
+            },
+            "404NotFound": {
+                "description": "Resource not found."
             }
         },
         "parameters": {
