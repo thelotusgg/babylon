@@ -151,12 +151,18 @@
                     "Phrase"
                 ],
                 "requestBody": {
-                    "description": "Data required upon project creation. `phraseId` body parameter will be overridden.",
                     "required": true,
                     "content": {
                         "application/json": {
                             "schema": {
-                                "$ref": "#/components/schemas/Phrase"
+                                "properties": {
+                                    "projectId": {
+                                        "type": "number"
+                                    },
+                                    "key": {
+                                        "type": "string"
+                                    }
+                                }
                             }
                         }
                     }
@@ -209,12 +215,18 @@
                     }
                 ],
                 "requestBody": {
-                    "description": "Data required upon phrase creation. `phraseId` body parameter will be ignored.",
                     "required": true,
                     "content": {
                         "application/json": {
                             "schema": {
-                                "$ref": "#/components/schemas/Phrase"
+                                "properties": {
+                                    "key": {
+                                        "type": "string"
+                                    },
+                                    "projectId": {
+                                        "type": "number"
+                                    }
+                                }
                             }
                         }
                     }
