@@ -499,11 +499,17 @@
                 "properties": {
                     "up": {
                         "type": "array",
-                        "description": "List of user UUIDs voted up"
+                        "description": "List of user UUIDs voted up",
+                        "items": {
+                            "type": "string"
+                        }
                     },
                     "down": {
                         "type": "array",
-                        "description": "List of user UUIDs voted down"
+                        "description": "List of user UUIDs voted down",
+                        "items": {
+                            "type": "string"
+                        }
                     }
                 }
             },
