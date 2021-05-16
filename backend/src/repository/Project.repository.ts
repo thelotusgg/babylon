@@ -1,6 +1,7 @@
 import { Injectable } from "@nestjs/common";
 import { Project } from "../model/Project.model";
 import ProjectCreateDTO from "../dto/ProjectCreate.dto";
+import { runInThisContext } from "node:vm";
 
 /**
  * The repository is responsible for persisting changes made to a project to our datastore (MongoDB).
@@ -27,6 +28,10 @@ export class ProjectRepository {
 
   async getProjectById(projectId: number) {
     return this.store.find(p => p.projectId == projectId);
+  }
+
+  async deleteProjectById(projectId: number) {
+    return this.store.splice(projectId, 1);
   }
 
 }

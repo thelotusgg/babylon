@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Param, Post } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, Post } from '@nestjs/common';
 import { Project } from '../model/Project.model';
 import ProjectService from '../service/Project.service';
 import ProjectCreateDTO from '../dto/ProjectCreate.dto';
@@ -27,6 +27,13 @@ export default class ProjectController {
     console.debug("Get project: ", projectId)
     return this.projectService.getProjectById(projectId);
   }
+
+  @Delete("/:projectId")
+  async deleteProject(@Param('projectId') projectId: number) {
+      console.debug("Delete project: ", projectId);
+      return this.projectService.deleteProjectById(projectId);
+  }
+
 
   
 }

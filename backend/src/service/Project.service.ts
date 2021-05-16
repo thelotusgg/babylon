@@ -3,6 +3,7 @@ import ProjectCreateDTO from '../dto/ProjectCreate.dto';
 import { CommandBus } from '@nestjs/cqrs';
 import { ProjectCreateCommand } from '../command/ProjectCreate.command';
 import { ProjectRepository } from '../repository/Project.repository';
+import { ProjectDeleteCommand } from 'src/command/ProjectDelete.command';
 
 /**
  * This service either access the datastore directly for reading purposes
@@ -20,6 +21,10 @@ export default class ProjectService {
   async getProjectById(projectId: number) {
     const result = await this.repository.getProjectById(projectId);
     return result;
+  }
+
+  async deleteProjectById(projectId: number) {
+    return await this.commandBus.execute(new ProjectDeleteCommand(projectId));
   }
 
 }
