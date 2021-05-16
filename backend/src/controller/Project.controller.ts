@@ -30,8 +30,8 @@ export default class ProjectController {
 
   @Delete("/:projectId")
   async deleteProject(@Param('projectId') projectId: number) {
-      console.debug("Delete project: ", projectId);
-      return this.projectService.deleteProjectById(projectId);
+    console.debug("Delete project: ", projectId);
+    return this.projectService.deleteProjectById(projectId);
   }
 
 
