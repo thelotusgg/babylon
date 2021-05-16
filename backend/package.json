@@ -15,8 +15,10 @@
     "@nestjs/cli": "^7.6.0",
     "@nestjs/common": "^7.6.15",
     "@nestjs/core": "^7.6.15",
+    "@nestjs/cqrs": "^7.0.1",
     "@nestjs/passport": "^7.1.5",
     "@nestjs/platform-express": "^7.6.15",
+    "class-validator": "^0.13.1",
     "passport": "^0.4.1",
     "passport-local": "^1.0.0",
     "reflect-metadata": "^0.1.13"

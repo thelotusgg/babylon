@@ -26,7 +26,7 @@
     "servers": [
         {
             "description": "localhost alpha-1",
-            "url": "localhost:3000/alpha-v1"
+            "url": "http://localhost:3000"
         }
     ],
     "paths": {
