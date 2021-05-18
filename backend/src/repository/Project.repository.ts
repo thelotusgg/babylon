@@ -1,6 +1,7 @@
 import { Injectable } from "@nestjs/common";
 import { Project } from "../model/Project.model";
 import ProjectCreateDTO from "../dto/ProjectCreate.dto";
+import ProjectUpdateDTO from "../dto/ProjectUpdate.dto";
 import { runInThisContext } from "node:vm";
 
 /**
@@ -32,6 +33,19 @@ export class ProjectRepository {
 
   async deleteProjectById(projectId: number) {
     return this.store.splice(projectId, 1);
+  }
+
+  async updateProjectById(projectId: number, dto: ProjectUpdateDTO) {
+    const project: Project = new Project(
+      projectId,
+      dto.name,
+      dto.description
+    );
+
+      console.debug("Persist: ", project);
+
+    this.store[projectId] = project;
+    return projectId;
   }
 
 }

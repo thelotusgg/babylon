@@ -4,6 +4,8 @@ import { ProjectRepository } from './repository/Project.repository';
 import ProjectService from './service/Project.service';
 import { ProjectCreateHandler } from './command-handler/ProjectCreate.handler';
 import { CqrsModule } from '@nestjs/cqrs';
+import { ProjectDeleteHandler } from './command-handler/ProjectDelete.handler';
+import { ProjectUpdateHandler } from './command-handler/ProjectUpdate.handler';
 
 @Module({
   imports: [CqrsModule],
@@ -11,6 +13,8 @@ import { CqrsModule } from '@nestjs/cqrs';
   providers: [
     ProjectService,
     ProjectCreateHandler,
+    ProjectDeleteHandler,
+    ProjectUpdateHandler,
     ProjectRepository
   ],
 })

@@ -1,6 +1,6 @@
 import { ICommand } from '@nestjs/cqrs';
 /**
- * This command deletes a new project.
+ * This command deletes a project.
  */
 export class ProjectDeleteCommand implements ICommand {
 

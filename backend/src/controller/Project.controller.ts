@@ -1,7 +1,8 @@
-import { Body, Controller, Delete, Get, Param, Post } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, Patch, Post } from '@nestjs/common';
 import { Project } from '../model/Project.model';
 import ProjectService from '../service/Project.service';
 import ProjectCreateDTO from '../dto/ProjectCreate.dto';
+import ProjectDeleteDTO from 'src/dto/ProjectUpdate.dto';
 
 /**
  * The project controller handles all incoming REST requests, validates their parameters and
@@ -34,6 +35,10 @@ export default class ProjectController {
     return this.projectService.deleteProjectById(projectId);
   }
 
-
+  @Patch("/:projectId")
+  async updateProject(@Param('projectId') projectId: number, @Body() dto: ProjectDeleteDTO) {
+    console.debug("Update project: ", projectId);
+    return this.projectService.updateProjectById(projectId, dto);
+  }
   
 }
