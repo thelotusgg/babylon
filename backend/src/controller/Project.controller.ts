@@ -40,5 +40,11 @@ export default class ProjectController {
     console.debug("Update project: ", projectId);
     return this.projectService.updateProjectById(projectId, dto);
   }
-  
+
+  @Get("/:projectId/translation/:key")
+  async getTranslationByIdAndKey(@Param('projectId') projectId: number, @Param('key') key: string) {
+    console.debug("Get translation by key: ", projectId);
+    return this.projectService.getTranslationByIdAndKey(projectId, key);
+  }
+
 }
