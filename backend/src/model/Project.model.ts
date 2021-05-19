@@ -16,4 +16,3 @@ export class Project extends AggregateRoot {
      }
 
 }
-
