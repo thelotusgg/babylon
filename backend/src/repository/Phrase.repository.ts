@@ -40,4 +40,8 @@ export class PhraseRepository {
         return Store.phraseStore.splice(phraseId, 1);
     }
 
+    async createCommentById(phraseId: number, comment: string) {
+        var phrase: Phrase = Store.phraseStore[phraseId];
+    }
+
 }
