@@ -2,20 +2,22 @@
   "name": "backend",
   "version": "1.0.0",
   "description": "",
-  "main": "dist/server.js",
+  "main": "dist/index.js",
   "scripts": {
     "build": "npm run build:production",
     "build:dev": "webpack --config webpack.development.js",
     "build:development": "npm run build:dev",
     "build:production": "webpack --config webpack.production.js",
-    "start": "node --require dotenv/config dist/server",
+    "start": "node --require dotenv/config dist/index",
     "lint": "npx eslint src/**.*"
   },
   "keywords": [],
   "author": "",
   "license": "MIT",
   "devDependencies": {
+    "@types/webpack-dev-middleware": "^4.3.0",
     "@types/webpack-env": "^1.16.0",
+    "@types/webpack-hot-middleware": "^2.25.4",
     "@typescript-eslint/eslint-plugin": "^4.16.1",
     "@typescript-eslint/parser": "^4.16.1",
     "eslint": "^7.21.0",
@@ -24,12 +26,16 @@
     "typescript": "^4.2.3"
   },
   "dependencies": {
-    "apollo-server": "^2.21.0",
+    "apollo-server-express": "^2.25.0",
     "clean-webpack-plugin": "^3.0.0",
     "dotenv": "^8.2.0",
+    "express": "^4.17.1",
     "graphql": "^15.5.0",
+    "mongoose": "^5.12.11",
     "webpack": "^5.24.3",
     "webpack-cli": "^4.5.0",
+    "webpack-dev-middleware": "^4.3.0",
+    "webpack-hot-middleware": "^2.25.0",
     "webpack-merge": "^5.7.3",
     "webpack-node-externals": "^2.5.2"
   }

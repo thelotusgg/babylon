@@ -11,8 +11,9 @@ module.exports = {
     ],
   },
   output: {
-    filename: 'server.js',
+    filename: 'index.js',
     path: path.resolve(__dirname, 'dist'),
+    publicPath: '/',
   },
   externals: {
     bufferutil: 'bufferutil', 'utf-8-validate': 'utf-8-validate',
