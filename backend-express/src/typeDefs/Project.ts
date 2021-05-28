@@ -1,12 +1,12 @@
-import { gql } from 'apollo-server-express'
+import { gql } from 'apollo-server';
 
 export default gql`
     extend type Query {
-        project: [Project]
+        projects: [Project]
     }
 
     type Project {
         _id: ID!
         name: String!
     }
-`
+`;

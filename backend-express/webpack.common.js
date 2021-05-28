@@ -1,0 +1,24 @@
+const path = require('path');
+
+module.exports = {
+  module: {
+    rules: [
+      {
+        exclude: [path.resolve(__dirname, 'node_modules')],
+        test: /\.ts$/,
+        use: 'ts-loader',
+      },
+    ],
+  },
+  output: {
+    filename: 'server.js',
+    path: path.resolve(__dirname, 'dist'),
+  },
+  externals: {
+    bufferutil: 'bufferutil', 'utf-8-validate': 'utf-8-validate',
+  },
+  resolve: {
+    extensions: ['.ts', '.js'],
+  },
+  target: 'node',
+};

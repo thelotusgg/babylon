@@ -1,7 +1,13 @@
+import dotenv from 'dotenv';
+
+dotenv.config();
+
 interface Environment {
-  mongo_uri: string;
+  port: number | string;
 }
 
-export const environment: Environment = {
-    mongo_uri: process.env.MONGO_URI || ''
-}
+const environment: Environment = {
+  port: process.env.PORT || 4000,
+};
+
+export default environment;

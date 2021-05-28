@@ -1,0 +1,16 @@
+{
+  "extends": "airbnb-typescript",
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "project": "./tsconfig.json"
+  },
+  "plugins": [
+    "@typescript-eslint"
+  ],
+  // workarround for warning
+  "settings": {
+    "react": {
+      "version": "latest"
+    }
+  }
+}
