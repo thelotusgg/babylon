@@ -21,17 +21,8 @@ export default new Schema({
       required: true,
     },
   }],
-  languages: [{
-    code: {
-      type: String,
-      required: true,
-    },
-  }],
-  category: {
+  parent: {
     type: Schema.Types.ObjectId,
-    required: true,
     ref: 'category',
   },
-}, {
-  timestamps: true,
 });
