@@ -1,4 +1,4 @@
 import { model } from 'mongoose';
-import schemas from '../schemas';
+import { Project as ProjectSchema } from '../schemas';
 
-export default model('Project', schemas.Project);
+export default model('Project', ProjectSchema);
