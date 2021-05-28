@@ -2,15 +2,14 @@ import { gql } from 'apollo-server-express';
 
 export default gql`
   extend type Query {
-    project(_id: ID!): Project
-    projects: [Project]
+    category(_id: ID!): Category
+    categories: [Category]
   }
 
-  type Project {
+  type Category {
     _id: ID!
     title: [MultiligualText]
     description: [MultiligualText]
-    languages: [Language]
-    category: Category!
+    parent: Category
   }
 `;
