@@ -11,7 +11,6 @@ export default class CategoryDataSource extends AbstractMongooseDataSource {
   }
 
   async getByParent(parentId: ObjectId) {
-    const documenets = await this.model.find({ parent: parentId });
-    return documenets;
+    return this.model.find({ parent: parentId });
   }
 }

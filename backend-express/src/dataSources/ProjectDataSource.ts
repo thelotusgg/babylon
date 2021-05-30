@@ -11,7 +11,6 @@ export default class ProjectDataSource extends AbstractMongooseDataSource {
   }
 
   async getByCategory(categoryId: ObjectId) {
-    const documenets = await this.model.find({ category: categoryId });
-    return documenets;
+    return this.model.find({ category: categoryId });
   }
 }

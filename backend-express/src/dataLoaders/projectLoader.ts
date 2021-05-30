@@ -1,9 +1,7 @@
 import DataLoader from 'dataloader';
 import { Project } from '../models';
 
-const projectLoader = new DataLoader(async (projectIds) => {
-  const projects = await Project.find({ _id: { $in: projectIds } });
-  return projects;
-});
+// eslint-disable-next-line max-len
+const projectLoader = new DataLoader(async (projectIds) => Project.find({ _id: { $in: projectIds } }).exec());
 
 export default projectLoader;
