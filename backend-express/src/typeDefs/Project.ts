@@ -8,9 +8,11 @@ export default gql`
 
   type Project {
     _id: ID!
-    title: [MultiligualText]
-    description: [MultiligualText]
+    titles: [MultiligualText]
+    descriptions: [MultiligualText]
     languages: [Language]
+    phrase(_id: ID!): Phrase
+    phrases: [Phrase]
     category: Category!
   }
 `;

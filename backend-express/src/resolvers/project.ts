@@ -1,10 +1,6 @@
-import models from '../models';
-
 export default {
   Query: {
-    projects: async () => {
-      const result = await models.Project.find({});
-      return result;
-    },
+    projects: async (_: any, __: any, { dataSources: { project } }: any) => project.getAll(),
+    project: (_: any, { _id }: any, { dataSources: { project } }: any) => project.get(_id),
   },
 };

@@ -1,7 +1,7 @@
 import { Schema } from 'mongoose';
 
 export default new Schema({
-  title: [{
+  titles: [{
     languageCode: {
       type: String,
       required: true,
@@ -11,7 +11,7 @@ export default new Schema({
       required: true,
     },
   }],
-  description: [{
+  descriptions: [{
     languageCode: {
       type: String,
       required: true,

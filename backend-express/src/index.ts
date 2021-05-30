@@ -16,6 +16,10 @@ if (module.hot) {
 
   module.hot.accept([
     './app',
+    './models',
+    './resolvers',
+    './schemas',
+    './typeDefs',
   ], () => {
     server.removeListener('request', currentApp);
 
