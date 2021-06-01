@@ -1,7 +1,7 @@
 import { ApolloServer } from 'apollo-server-express';
 import express from 'express';
 import mongoose from 'mongoose';
-import { CategoryDataSource, ProjectDataSource } from './dataSources';
+import { CategoryDataSource, PhraseDataSource, ProjectDataSource } from './dataSources';
 import environment from './environment';
 import resolvers from './resolvers';
 import typeDefs from './typeDefs';
@@ -38,6 +38,7 @@ const server = new ApolloServer({
   ],
   dataSources: () => ({
     category: new CategoryDataSource(),
+    phrase: new PhraseDataSource(),
     project: new ProjectDataSource(),
   }),
 });

@@ -6,8 +6,7 @@ export default abstract class AbstractMongooseDataSource extends DataSource {
   dataLoader: any;
 
   async getAll() {
-    const documenets = await this.model.find({});
-    return documenets;
+    return this.model.find({}).exec();
   }
 
   get(objectIds: string | string[]) {
