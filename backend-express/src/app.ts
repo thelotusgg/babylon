@@ -1,8 +1,12 @@
 import { ApolloServer } from 'apollo-server-express';
 import express from 'express';
 import mongoose from 'mongoose';
-import { CategoryDataSource, PhraseDataSource, ProjectDataSource } from './dataSources';
 import environment from './environment';
+import {
+  CategoryDataSource,
+  PhraseDataSource,
+  ProjectDataSource,
+} from './dataSources';
 import resolvers from './resolvers';
 import typeDefs from './typeDefs';
 
