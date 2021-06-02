@@ -3,8 +3,32 @@ import { gql } from 'apollo-server-express';
 export default gql`
   extend type Query {
     category(_id: ID!): Category
-    categories: [Category]
+    categories(rootOnly: Boolean = false): [Category]
   }
+
+  extend type Mutation {
+    createCategory(input: CreateCategoryInput!): Category
+    deleteCategory(input: DeleteCategoryInput!): Category
+    updateCategory(input: UpdateCategoryInput!): Category
+  }
+
+  input CreateCategoryInput {
+    titles: [MultiligualTextInput]
+    descriptions: [MultiligualTextInput]
+    parent: String,
+  }
+
+  input DeleteCategoryInput {
+    _id: ID!
+  }
+
+  input UpdateCategoryInput {
+    _id: ID!
+    titles: [MultiligualTextInput]
+    descriptions: [MultiligualTextInput]
+    parent: String,
+  }
+
 
   type Category {
     _id: ID!

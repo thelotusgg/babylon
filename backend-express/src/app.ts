@@ -17,6 +17,7 @@ mongoose
     useCreateIndex: true,
     useNewUrlParser: true,
     useUnifiedTopology: true,
+    useFindAndModify: false,
   })
   .catch((error) => {
     // eslint-disable-next-line no-console
@@ -29,6 +30,7 @@ const server = new ApolloServer({
     typeDefs.Comment,
     typeDefs.Language,
     typeDefs.MultiligualText,
+    typeDefs.Mutation,
     typeDefs.Phrase,
     typeDefs.Project,
     typeDefs.Query,
