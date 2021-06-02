@@ -6,12 +6,24 @@
   "editor.insertSpaces": true,
   "editor.tabSize": 2,
   "eslint.validate": [
+    "javascript",
+    "javascriptreact",
     "typescript",
-    "typescriptreact"
+    "typescriptreact",
+    "vue",
   ],
-  "[typescript]": {
-    "editor.codeActionsOnSave": {
-      "source.organizeImports": true
-    }
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
+  "[javascriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "prettier.configPath": ".prettierrc.js",
+  "typescript.extension.sortImports.sortMethod": "path"
 }
