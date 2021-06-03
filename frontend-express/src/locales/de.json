@@ -1,0 +1,14 @@
+{
+    "app": {
+        "name": "Babylon",
+        "page": {
+            "dashboard": "Dashboard",
+            "project": "Projekt: {name}",
+            "user": {
+                "index": "User",
+                "settings": "Einstellungen",
+                "signout": "Ausloggen"
+            }
+        }
+    }
+}

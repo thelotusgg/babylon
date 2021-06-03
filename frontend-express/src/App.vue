@@ -1,14 +1,19 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+  <div class="min-h-screen flex flex-col">
+    <div class="px-4 md:px-6 lg:px-8 pt-20 pb-12 flex-grow">
+      <LayoutContainer>
+        <router-view/>
+      </LayoutContainer>
     </div>
-    <font-awesome-icon icon="user-secret" />
-    <router-view/>
   </div>
 </template>
 
-<style lang="scss">
+<script lang="ts">
+import LayoutContainer from '@/components/layout/LayoutContainer.vue';
 
-</style>
+export default {
+  components: {
+    LayoutContainer,
+  },
+};
+</script>

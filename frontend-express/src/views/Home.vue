@@ -3,7 +3,10 @@
     <img alt="Vue logo" src="../assets/logo.png">
     <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/>
 
-    <ul>
+    {{ $t('app.page.user.settings') }}
+
+    <div v-if="$apollo.loading">Loading...</div>
+    <ul v-else>
       <li v-for="category in categories" :key="category._id">
         {{ category.title.value }}
       </li>
