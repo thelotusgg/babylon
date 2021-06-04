@@ -1,14 +1,44 @@
 {
-    "app": {
-        "name": "Babylon",
-        "page": {
-            "dashboard": "Dashboard",
-            "project": "Project: {name}",
-            "user": {
-                "index": "User",
-                "settings": "Settings",
-                "signout": "Sign out"
-            }
+  "app": {
+    "name": "Babylon",
+    "page": {
+      "categories": {
+        "index": "Categories"
+      },
+      "category": {
+        "index": "Category"
+      },
+      "dashboard": "Dashboard",
+      "project": {
+        "index": "Project"
+      },
+      "user": {
+        "index": "User",
+          "settings": "Settings",
+          "signout": "Sign out"
         }
+      }
+  },
+  "alert": {
+    "categories": {
+      "notFound": {
+        "info": "No categories were found."
+      }
+    },
+    "category": {
+      "notFound": {
+        "info": "No category was found."
+      }
+    },
+    "projects": {
+      "notFound": {
+        "info": "No projects were found."
+      }
+    },
+    "project": {
+      "notFound": {
+        "info": "No project was found."
+      }
     }
+  }
 }

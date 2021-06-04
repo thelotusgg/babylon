@@ -1,6 +1,9 @@
 <template>
-  <div class="2xl:max-w-layoutContainer 2xl:mx-auto">
+  <div>
     <slot/>
+    <div class="text-sm text-gray-500">
+      <slot name="description"/>
+    </div>
   </div>
 </template>
 
@@ -8,6 +11,6 @@
 import Vue from 'vue';
 
 export default Vue.extend({
-  name: 'LayoutContainer',
+  name: 'AppHeadline',
 });
 </script>

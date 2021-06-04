@@ -1,6 +1,12 @@
 import Vue from 'vue';
 import { library } from '@fortawesome/fontawesome-svg-core';
-import { faUserSecret } from '@fortawesome/free-solid-svg-icons';
+import {
+  faBars,
+  faChevronRight,
+  faLanguage,
+  faUser,
+  faUserSecret,
+} from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import './assets/style/tailwind.css';
 import VueApollo from 'vue-apollo';
@@ -11,13 +17,16 @@ import App from './App.vue';
 import apolloClient from './apolloClient';
 
 // font awesome
-library.add(faUserSecret);
+library.add(faBars, faChevronRight, faLanguage, faUser, faUserSecret);
 Vue.component('font-awesome-icon', FontAwesomeIcon);
 
 // vue apollo
 Vue.use(VueApollo);
 const apolloProvider = new VueApollo({
   defaultClient: apolloClient,
+  errorHandler(error) {
+    console.error(error);
+  },
 });
 
 // vue i18n

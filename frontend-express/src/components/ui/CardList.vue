@@ -1,6 +1,7 @@
 <template>
-  <div class="2xl:max-w-layoutContainer 2xl:mx-auto">
-    <slot/>
+  <div
+    class="grid gap-4 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+      <slot/>
   </div>
 </template>
 
@@ -8,6 +9,6 @@
 import Vue from 'vue';
 
 export default Vue.extend({
-  name: 'LayoutContainer',
+  name: 'CardList',
 });
 </script>
