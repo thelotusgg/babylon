@@ -38,6 +38,7 @@ const server = new ApolloServer({
   ],
   resolvers: [
     resolvers.category,
+    resolvers.language,
     // resolvers.phrase,
     resolvers.project,
     // resolvers.user,
