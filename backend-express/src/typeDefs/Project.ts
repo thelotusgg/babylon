@@ -6,6 +6,30 @@ export default gql`
     projects: [Project]
   }
 
+  extend type Mutation {
+    createProject(input: CreateProjectInput!): Project
+    deleteProject(input: DeleteProjectInput!): Project
+    updateProject(input: UpdateProjectInput!): Project
+  }
+
+  input CreateProjectInput {
+    titles: [MultiligualTextInput!]!
+    descriptions: [MultiligualTextInput]
+    languages: [LanguageInput]
+    category: String!,
+  }
+
+  input DeleteProjectInput {
+    _id: ID!
+  }
+
+  input UpdateProjectInput {
+    _id: ID!
+    titles: [MultiligualTextInput]
+    descriptions: [MultiligualTextInput]
+    category: String,
+  }
+
   type Project {
     _id: ID!
     title(languageCode: String, fallback: Boolean = true): MultiligualText
