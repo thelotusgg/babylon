@@ -20,7 +20,7 @@
                 {{ $t('language.' + language.code) }}
               </p>
               <p class="text-gray-400 text-sm">
-                {{ $t('language.xPercentTranslated', { percent: 10 })}}
+                {{ $t('language.xPercentTranslated', { percent: '??,??' })}}
               </p>
             </div>
             <div class="flex items-center">
