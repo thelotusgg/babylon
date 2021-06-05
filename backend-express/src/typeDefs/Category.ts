@@ -29,7 +29,6 @@ export default gql`
     parent: String,
   }
 
-
   type Category {
     _id: ID!
     title(languageCode: String, fallback: Boolean = true): MultiligualText
