@@ -6,7 +6,7 @@ export default gql`
     countryCode: String!
   }
 
-  type LanguageInput {
+  input LanguageInput {
     code: String!
     countryCode: String!
   }
