@@ -17,7 +17,7 @@
       </AppAlert>
       <template v-else>
         <AppAlert v-if="category.projects.length == 0" type="info">
-          {{ $t('alert.project.notFound.info')}}
+          {{ $t('alert.projects.notFound.info')}}
         </AppAlert>
         <CardList v-else :projects="category.projects"/>
       </template>
