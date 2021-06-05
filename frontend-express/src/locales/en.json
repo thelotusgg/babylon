@@ -40,5 +40,10 @@
         "info": "No project was found."
       }
     }
+  },
+  "language": {
+    "de-DE": "German",
+    "en-GB": "English (UK)",
+    "xPercentTranslated": "{percent}% translated"
   }
 }

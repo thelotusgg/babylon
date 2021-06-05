@@ -3,6 +3,8 @@ import VueRouter, { RouteConfig } from 'vue-router';
 import Home from '@/views/Home.vue';
 import Category from '@/views/Category.vue';
 import Project from '@/views/Project.vue';
+import ProjectIndex from '@/views/project/Index.vue';
+import ProjectLanguage from '@/views/project/Language.vue';
 
 Vue.use(VueRouter);
 
@@ -19,8 +21,19 @@ const routes: Array<RouteConfig> = [
   },
   {
     path: '/project/:id',
-    name: 'project',
     component: Project,
+    children: [
+      {
+        path: '',
+        name: 'project',
+        component: ProjectIndex,
+      },
+      {
+        path: ':languageCode',
+        name: 'project.language',
+        component: ProjectLanguage,
+      },
+    ],
   },
 ];
 

@@ -12,6 +12,7 @@ import './assets/style/tailwind.css';
 import VueApollo from 'vue-apollo';
 import VueI18n from 'vue-i18n';
 import locales from '@/locales';
+import CountryFlag from 'vue-country-flag';
 import router from './router';
 import App from './App.vue';
 import apolloClient from './apolloClient';
@@ -36,6 +37,9 @@ const i18n = new VueI18n({
   fallbackLocale: 'en',
   messages: locales,
 });
+
+// country flags
+Vue.component('country-flag', CountryFlag);
 
 // vue app
 Vue.config.productionTip = false;
