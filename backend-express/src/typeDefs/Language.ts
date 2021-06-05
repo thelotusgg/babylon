@@ -5,4 +5,9 @@ export default gql`
     code: String!
     countryCode: String!
   }
+
+  type LanguageInput {
+    code: String!
+    countryCode: String!
+  }
 `;
