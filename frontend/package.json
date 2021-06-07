@@ -13,7 +13,7 @@
     "@fortawesome/free-solid-svg-icons": "^5.15.3",
     "@fortawesome/vue-fontawesome": "^3.0.0-3",
     "autoprefixer": "^9.8.6",
-    "core-js": "^3.6.5",
+    "core-js": "^3.14.0",
     "svg-country-flags": "^1.2.10",
     "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.1.0",
     "vue": "^3.0.0",
