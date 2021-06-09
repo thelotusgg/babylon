@@ -6,6 +6,7 @@ import {
   CategoryDataSource,
   PhraseDataSource,
   ProjectDataSource,
+  TranslationDataSource,
 } from './dataSources';
 import resolvers from './resolvers';
 import typeDefs from './typeDefs';
@@ -42,11 +43,14 @@ const server = new ApolloServer({
     resolvers.phrase,
     resolvers.project,
     // resolvers.user,
+    // resolvers.proposal,
+    resolvers.translation,
   ],
   dataSources: () => ({
     category: new CategoryDataSource(),
     phrase: new PhraseDataSource(),
     project: new ProjectDataSource(),
+    translation: new TranslationDataSource(),
   }),
 });
 
