@@ -30,7 +30,7 @@ export default class ProjectDataSource extends AbstractMongooseDataSource {
     return this.model.findOneAndUpdate({ _id }, {
       titles: ProjectDataSource.updateMultiligualTexts(object.titles, titles),
       descriptions: ProjectDataSource.updateMultiligualTexts(object.descriptions, descriptions),
-      ...rest[0],
+      ...rest,
     }, { new: true });
   }
 

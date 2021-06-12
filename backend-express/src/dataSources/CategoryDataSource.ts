@@ -30,7 +30,7 @@ export default class CategoryDataSource extends AbstractMongooseDataSource {
     return this.model.findOneAndUpdate({ _id }, {
       titles: CategoryDataSource.updateMultiligualTexts(object.titles, titles),
       descriptions: CategoryDataSource.updateMultiligualTexts(object.descriptions, descriptions),
-      ...rest[0],
+      ...rest,
     }, { new: true });
   }
 
