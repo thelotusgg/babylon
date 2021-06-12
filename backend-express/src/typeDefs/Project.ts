@@ -9,6 +9,8 @@ export default gql`
   extend type Mutation {
     createProject(input: CreateProjectInput!): Project
     deleteProject(input: DeleteProjectInput!): Project
+    deleteProjectDescription(input: DeleteProjectDescriptionInput!): Project
+    deleteProjectTitle(input: DeleteProjectTitleInput!): Project
     updateProject(input: UpdateProjectInput!): Project
   }
 
@@ -21,6 +23,16 @@ export default gql`
 
   input DeleteProjectInput {
     _id: ID!
+  }
+
+  input DeleteProjectDescriptionInput {
+    _id: ID!
+    description: ID!
+  }
+
+  input DeleteProjectTitleInput {
+    _id: ID!
+    title: ID!
   }
 
   input UpdateProjectInput {

@@ -12,6 +12,8 @@ export default {
   Mutation: {
     createProject: (_: any, { input }: any, { dataSources: { project } }: any) => project.create(input),
     deleteProject: (_: any, { input }: any, { dataSources: { project } }: any) => project.delete(input),
+    deleteProjectDescription: (_: any, { input }: any, { dataSources: { project } }: any) => project.deleteDescription(input),
+    deleteProjectTitle: (_: any, { input }: any, { dataSources: { project } }: any) => project.deleteTitle(input),
     updateProject: (_: any, { input }: any, { dataSources: { project } }: any) => project.update(input),
   },
   Query: {
