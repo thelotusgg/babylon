@@ -34,7 +34,9 @@ const server = new ApolloServer({
     typeDefs.Mutation,
     typeDefs.Phrase,
     typeDefs.Project,
+    typeDefs.Proposal,
     typeDefs.Query,
+    typeDefs.Translation,
     typeDefs.User,
   ],
   resolvers: [

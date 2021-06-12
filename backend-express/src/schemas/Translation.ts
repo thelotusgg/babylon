@@ -1,16 +1,15 @@
 import { Schema } from 'mongoose';
-import Translation from './Translation';
+import Proposal from './Proposal';
 
 export default new Schema({
-  project: {
-    type: Schema.Types.ObjectId,
+  languageCode: {
+    type: String,
     required: true,
-    ref: 'project',
   },
-  key: {
+  value: {
     type: String,
   },
-  translations: [Translation],
+  proposals: [Proposal],
   comments: [{
     value: {
       type: String,
@@ -32,6 +31,4 @@ export default new Schema({
       },
     }],
   }],
-}, {
-  timestamps: true,
 });

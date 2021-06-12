@@ -5,7 +5,9 @@ import MultiligualText from './MultiligualText';
 import Mutation from './Mutation';
 import Phrase from './Phrase';
 import Project from './Project';
+import Proposal from './Proposal';
 import Query from './Query';
+import Translation from './Translation';
 import User from './User';
 
 export default {
@@ -16,6 +18,8 @@ export default {
   Mutation,
   Phrase,
   Project,
+  Proposal,
   Query,
+  Translation,
   User,
 };

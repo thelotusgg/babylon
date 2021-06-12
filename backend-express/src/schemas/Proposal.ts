@@ -1,16 +1,14 @@
 import { Schema } from 'mongoose';
-import Translation from './Translation';
 
 export default new Schema({
-  project: {
-    type: Schema.Types.ObjectId,
-    required: true,
-    ref: 'project',
-  },
-  key: {
+  value: {
     type: String,
   },
-  translations: [Translation],
+  user: {
+    type: Schema.Types.ObjectId,
+    required: true,
+    ref: 'user',
+  },
   comments: [{
     value: {
       type: String,
