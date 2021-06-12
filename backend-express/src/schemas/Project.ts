@@ -15,6 +15,10 @@ export default new Schema({
       type: String,
       required: true,
     },
+    countryCode: {
+      type: String,
+      required: true,
+    },
   }],
   category: {
     type: Schema.Types.ObjectId,
