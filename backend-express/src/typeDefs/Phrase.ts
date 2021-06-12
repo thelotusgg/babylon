@@ -29,7 +29,7 @@ export default gql`
   type Phrase {
     _id: ID!
     key: String!
-    translation(languageCode: String, fallback: Boolean = true): Translation
+    translation(_id: ID!): Translation
     translations: [Translation]
     comments: [Comment]
   }

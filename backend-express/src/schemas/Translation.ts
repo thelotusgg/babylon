@@ -1,5 +1,4 @@
 import { Schema } from 'mongoose';
-import Proposal from './Proposal';
 
 export default new Schema({
   languageCode: {
@@ -9,7 +8,11 @@ export default new Schema({
   value: {
     type: String,
   },
-  proposals: [Proposal],
+  phrase: {
+    type: Schema.Types.ObjectId,
+    required: true,
+    ref: 'phrase',
+  },
   comments: [{
     value: {
       type: String,

@@ -31,6 +31,7 @@ export default gql`
     _id: ID!
     languageCode: String
     value: String
+    proposal(_id: ID!): Proposal
     proposals: [Proposal]
     comments: [Comment]
   }

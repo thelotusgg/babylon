@@ -1,6 +1,10 @@
 import { gql } from 'apollo-server-express';
 
 export default gql`
+  extend type Query {
+    proposal(_id: ID!): Proposal
+  }
+
   extend type Mutation {
     createProposal(input: CreateProposalInput!): Proposal
     deleteProposal(input: DeleteProposalInput!): Proposal

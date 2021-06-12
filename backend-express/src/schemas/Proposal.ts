@@ -6,8 +6,13 @@ export default new Schema({
   },
   user: {
     type: Schema.Types.ObjectId,
-    required: true,
+    // required: true,
     ref: 'user',
+  },
+  translation: {
+    type: Schema.Types.ObjectId,
+    required: true,
+    ref: 'translation',
   },
   comments: [{
     value: {

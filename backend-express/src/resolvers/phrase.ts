@@ -2,29 +2,8 @@
 
 export default {
   Phrase: {
-    translation: async (parent: any, { languageCode, fallback }: any, context: any) => {
-      if (!parent.translations) return null;
-
-      // check if language is set and if not set language by context
-      let translationLanguageCode = languageCode;
-      if (!languageCode && context.languageCode) {
-        translationLanguageCode = context.languageCode;
-      }
-
-      // find translation
-      let translationResult = parent.translations.find(
-        (translation: { languageCode: any; }): any => translation.languageCode === translationLanguageCode,
-      );
-
-      // check if fallback translation is required
-      if (!translationResult && fallback) {
-        translationResult = parent.translations.find(
-          (translation: { languageCode: any; }): any => translation.languageCode === 'en-GB',
-        );
-      }
-
-      return translationResult;
-    },
+    translation: async (parent: any, { _id }: any, { dataSources: { translation } }: any) => translation.getByPhraseAndId(parent._id, _id),
+    translations: async (parent: any, __: any, { dataSources: { translation } }: any) => translation.getByPhrase(parent._id),
   },
   Mutation: {
     createPhrase: (_: any, { input }: any, { dataSources: { phrase } }: any) => phrase.create(input),
