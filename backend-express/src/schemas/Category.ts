@@ -1,30 +1,15 @@
 import { Schema } from 'mongoose';
+import MultiligualText from './MultiligualText';
 
 export default new Schema({
   titles: {
-    type: [{
-      languageCode: {
-        type: String,
-        required: true,
-      },
-      value: {
-        type: String,
-        required: true,
-      },
-    }],
+    type: [MultiligualText],
     required: true,
     validate: (x: any) => Array.isArray(x) && x.length > 0,
   },
-  descriptions: [{
-    languageCode: {
-      type: String,
-      required: true,
-    },
-    value: {
-      type: String,
-      required: true,
-    },
-  }],
+  descriptions: {
+    type: [MultiligualText],
+  },
   parent: {
     type: Schema.Types.ObjectId,
     ref: 'category',

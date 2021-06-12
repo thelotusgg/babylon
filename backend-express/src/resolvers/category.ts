@@ -12,6 +12,8 @@ export default {
   Mutation: {
     createCategory: (_: any, { input }: any, { dataSources: { category } }: any) => category.create(input),
     deleteCategory: (_: any, { input }: any, { dataSources: { category } }: any) => category.delete(input),
+    deleteCategoryDescription: (_: any, { input }: any, { dataSources: { category } }: any) => category.deleteDescription(input),
+    deleteCategoryTitle: (_: any, { input }: any, { dataSources: { category } }: any) => category.deleteTitle(input),
     updateCategory: (_: any, { input }: any, { dataSources: { category } }: any) => category.update(input),
   },
   Query: {

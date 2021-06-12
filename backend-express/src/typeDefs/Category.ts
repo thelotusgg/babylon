@@ -9,6 +9,8 @@ export default gql`
   extend type Mutation {
     createCategory(input: CreateCategoryInput!): Category
     deleteCategory(input: DeleteCategoryInput!): Category
+    deleteCategoryDescription(input: DeleteCategoryDescriptionInput!): Category
+    deleteCategoryTitle(input: DeleteCategoryTitleInput!): Category
     updateCategory(input: UpdateCategoryInput!): Category
   }
 
@@ -20,6 +22,16 @@ export default gql`
 
   input DeleteCategoryInput {
     _id: ID!
+  }
+
+  input DeleteCategoryDescriptionInput {
+    _id: ID!
+    description: ID!
+  }
+
+  input DeleteCategoryTitleInput {
+    _id: ID!
+    title: ID!
   }
 
   input UpdateCategoryInput {

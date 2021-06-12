@@ -7,6 +7,7 @@ export default gql`
   }
 
   type MultiligualText {
+    _id: ID!
     languageCode: String!
     value: String!
   }
