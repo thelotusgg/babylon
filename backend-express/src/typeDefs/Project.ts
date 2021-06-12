@@ -39,6 +39,7 @@ export default gql`
     _id: ID!
     titles: [MultiligualTextInput]
     descriptions: [MultiligualTextInput]
+    languages: [LanguageInput]
     category: String,
   }
 
