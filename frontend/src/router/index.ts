@@ -1,5 +1,6 @@
 import Dashboard from '@/views/Dashboard.vue';
 import Project from '@/views/Project.vue';
+import ProjectPhrases from '@/views/ProjectPhrases.vue';
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router';
 
 const routes: Array<RouteRecordRaw> = [
@@ -14,21 +15,24 @@ const routes: Array<RouteRecordRaw> = [
     component: Project,
   },
   {
+    path: '/project/:id/:languageCode',
+    name: 'project.phrases',
+    component: ProjectPhrases,
+  },
+  {
     path: '/user',
     name: 'user',
     component: Project,
-    children: [
-      {
-        path: 'settings',
-        name: 'user.settings',
-        component: Project,
-      },
-      {
-        path: '/signout',
-        name: 'user.signout',
-        component: Project,
-      },
-    ],
+  },
+  {
+    path: '/user/settings',
+    name: 'user.settings',
+    component: Project,
+  },
+  {
+    path: '/signout',
+    name: 'user.signout',
+    component: Project,
   },
 ];
 

@@ -14,19 +14,20 @@
     "@fortawesome/vue-fontawesome": "^3.0.0-3",
     "autoprefixer": "^9.8.6",
     "core-js": "^3.6.5",
+    "svg-country-flags": "^1.2.10",
     "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.1.0",
     "vue": "^3.0.0",
     "vue-i18n": "^9.1.6",
-    "vue-router": "^4.0.0-0"
+    "vue-router": "^4.0.8"
   },
   "devDependencies": {
-    "@tailwindcss/postcss7-compat": "^2.1.0",
+    "@tailwindcss/postcss7-compat": "^2.1.2",
     "@typescript-eslint/eslint-plugin": "^4.18.0",
-    "@typescript-eslint/parser": "^4.18.0",
+    "@typescript-eslint/parser": "^4.24.0",
     "@vue/cli-plugin-babel": "~4.5.0",
     "@vue/cli-plugin-eslint": "~4.5.0",
     "@vue/cli-plugin-router": "~4.5.0",
-    "@vue/cli-plugin-typescript": "~4.5.0",
+    "@vue/cli-plugin-typescript": "~4.5.13",
     "@vue/cli-service": "~4.5.0",
     "@vue/compiler-sfc": "^3.0.0",
     "@vue/eslint-config-airbnb": "^5.0.2",
@@ -35,7 +36,7 @@
     "eslint-plugin-import": "^2.20.2",
     "eslint-plugin-vue": "^7.0.0",
     "postcss": "^7.0.35",
-    "sass": "^1.26.5",
+    "sass": "^1.32.13",
     "sass-loader": "^8.0.2",
     "typescript": "~4.2.4"
   }
