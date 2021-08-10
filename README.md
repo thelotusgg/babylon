@@ -38,7 +38,7 @@ npm run test
 
 👤 **The Lotus Dev Team**
 
-* Github: [@thelotusgg](https://github.com/)
+* Github: [@thelotusgg](https://github.com/thelotusgg)
 
 ## 🤝 Contributing
 
