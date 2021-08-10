@@ -1,43 +1,45 @@
-import Dashboard from '@/views/Dashboard.vue';
+import Vue from 'vue';
+import VueRouter, { RouteConfig } from 'vue-router';
+import Home from '@/views/Home.vue';
+import Category from '@/views/Category.vue';
 import Project from '@/views/Project.vue';
-import ProjectPhrases from '@/views/ProjectPhrases.vue';
-import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router';
+import ProjectIndex from '@/views/project/Index.vue';
+import ProjectLanguage from '@/views/project/Language.vue';
 
-const routes: Array<RouteRecordRaw> = [
+Vue.use(VueRouter);
+
+const routes: Array<RouteConfig> = [
   {
     path: '/',
-    name: 'dashboard',
-    component: Dashboard,
+    name: 'home',
+    component: Home,
+  },
+  {
+    path: '/category/:id',
+    name: 'category',
+    component: Category,
   },
   {
     path: '/project/:id',
-    name: 'project',
     component: Project,
-  },
-  {
-    path: '/project/:id/:languageCode',
-    name: 'project.phrases',
-    component: ProjectPhrases,
-  },
-  {
-    path: '/user',
-    name: 'user',
-    component: Project,
-  },
-  {
-    path: '/user/settings',
-    name: 'user.settings',
-    component: Project,
-  },
-  {
-    path: '/signout',
-    name: 'user.signout',
-    component: Project,
+    children: [
+      {
+        path: '',
+        name: 'project',
+        component: ProjectIndex,
+      },
+      {
+        path: ':languageCode',
+        name: 'project.language',
+        component: ProjectLanguage,
+      },
+    ],
   },
 ];
 
-const router = createRouter({
-  history: createWebHistory(process.env.BASE_URL),
+const router = new VueRouter({
+  mode: 'history',
+  base: process.env.BASE_URL,
   routes,
 });
 

@@ -1,14 +1,24 @@
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const defaultTheme = require('tailwindcss/defaultTheme');
+
 module.exports = {
-  // mode: 'jit',
-  purge: ['./index.html', './src/**/*.{vue,js,ts,jsx,tsx}'],
-  darkMode: 'class',
+  mode: 'jit',
+  purge: [
+    './public/**/*.html',
+    './src/**/*.vue',
+  ],
+  darkMode: 'class', // or 'media' or 'class'
   theme: {
     extend: {
-      minWidth: {
-        '2/5': '40%',
+      fontFamily: {
+        sans: ['Inter', ...defaultTheme.fontFamily.sans],
       },
       maxWidth: {
         layoutContainer: '100rem',
+      },
+      minWidth: {
+        '1/2': '50%',
+        '2/5': '40%',
       },
       spacing: {
         layoutContainer: '100rem',
@@ -16,9 +26,7 @@ module.exports = {
     },
   },
   variants: {
-    extend: {
-      translate: ['group-hover'],
-    },
+    extend: {},
   },
   plugins: [],
 };

@@ -1,44 +1,49 @@
 {
-    "app": {
-        "name": "Babylon",
-        "page": {
-            "dashboard": "Dashboard",
-            "project": "Project: {name}",
-            "user": {
-                "index": "User",
-                "settings": "Settings",
-                "signout": "Sign out"
-            }
+  "app": {
+    "name": "Babylon",
+    "page": {
+      "categories": {
+        "index": "Categories"
+      },
+      "category": {
+        "index": "Category"
+      },
+      "dashboard": "Dashboard",
+      "project": {
+        "index": "Project"
+      },
+      "user": {
+        "index": "User",
+          "settings": "Settings",
+          "signout": "Sign out"
         }
+      }
+  },
+  "alert": {
+    "categories": {
+      "notFound": {
+        "info": "No categories were found."
+      }
     },
-    "language": {
-        "de-AT": {
-            "noun": "German (AT)",
-            "verb": "german"
-        },
-        "de-CH": {
-            "noun": "German (CH)",
-            "verb": "german"
-        },
-        "de-DE": {
-            "noun": "German",
-            "verb": "german"
-        },
-        "en-GB": {
-            "noun": "English (UK)",
-            "verb": "english"
-        },
-        "en-US": {
-            "noun": "English (US)",
-            "verb": "english"
-        },
-        "fr-FR": {
-            "noun": "French",
-            "verb": "french"
-        }
+    "category": {
+      "notFound": {
+        "info": "No category was found."
+      }
+    },
+    "projects": {
+      "notFound": {
+        "info": "No projects were found."
+      }
     },
     "project": {
-        "languages": "Languages",
-        "translatedInPercentage": "{percentage}% translated"
+      "notFound": {
+        "info": "No project was found."
+      }
     }
+  },
+  "language": {
+    "de-DE": "German",
+    "en-GB": "English (UK)",
+    "xPercentTranslated": "{percent}% translated"
+  }
 }

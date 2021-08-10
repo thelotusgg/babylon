@@ -1,84 +1,61 @@
 <template>
   <div>
-    <h1
-      class="text-3xl text-gray-600 dark:text-gray-300 mb-4"
-    >{{ $t("app.page.project", { name: "Anti-Cheat"})}}</h1>
-    <AppCardList
-      v-if="projectLanguages.length"
-      :title="$t('project.languages')"
-      gridClasses="md:grid-cols-10 lg:grid-cols-6 xl:grid-cols-6">
-      <AppCard
-        v-for="projectLanguage in projectLanguages"
-        :key="projectLanguage.code"
-        class="flex flex-col items-center"
-        :to="{
-          name: 'project.phrases',
-          params: {
-            id: 'jklafjhkalsjhfkaljsf',
-            languageCode: projectLanguage.code
-          }
-        }">
-        <AppCountryFlag
-           class="h-16 mb-2"
-          :countryCode="(projectLanguage.code.includes('-') ?
-          projectLanguage.code.split('-')[1].toLowerCase() :
-          projectLanguage.code.toLowerCase())"/>
-        <h1>{{ $t('language.' + projectLanguage.code + '.noun') }}</h1>
-        <p class="text-gray-500">{{ $t('project.translatedInPercentage', {
-          percentage: projectLanguage.translatedInPercentage
-          }) }}</p>
-      </AppCard>
-    </AppCardList>
+    <AppH1>
+      <template v-if="project && project.title">
+        {{ project.title.value }}
+      </template>
+      <template v-else>
+        {{ $t('app.page.project.index')}}
+      </template>
+      <template v-if="project && project.description" v-slot:description>
+        {{ project.description.value }}
+      </template>
+    </AppH1>
+    <LoadableContent :show="!$apollo.loading" :spinner="$apollo.loading">
+      <AppAlert v-if="!project" type="info">
+        {{ $t('alert.project.notFound.info')}}
+      </AppAlert>
+      <template v-else>
+        <router-view/>
+      </template>
+    </LoadableContent>
   </div>
 </template>
 
 <script lang="ts">
-import AppCardList from '@/components/AppCardList.vue';
-import AppCard from '@/components/AppCard.vue';
-import AppCountryFlag from '@/components/AppCountryFlag.vue';
-import { defineComponent } from 'vue';
+import gql from 'graphql-tag';
+import Vue from 'vue';
+import AppAlert from '@/components/ui/AppAlert.vue';
+import AppH1 from '@/components/ui/AppH1.vue';
+import LoadableContent from '@/components/ui/LoadableContent.vue';
 
-export default defineComponent({
+export default Vue.extend({
   name: 'Project',
   components: {
-    AppCardList,
-    AppCard,
-    AppCountryFlag,
+    AppAlert,
+    AppH1,
+    LoadableContent,
   },
-  data(): {
-    projectLanguages: {
-      code: string;
-      translatedInPercentage: number;
-    }[];
-    } {
-    return {
-      projectLanguages: [
-        {
-          code: 'de-DE',
-          translatedInPercentage: 100.00,
-        },
-        {
-          code: 'en-GB',
-          translatedInPercentage: 99.99,
-        },
-        {
-          code: 'en-US',
-          translatedInPercentage: 95.54,
-        },
-        {
-          code: 'de-AT',
-          translatedInPercentage: 99.54,
-        },
-        {
-          code: 'de-CH',
-          translatedInPercentage: 80.43,
-        },
-        {
-          code: 'fr-FR',
-          translatedInPercentage: 12.34,
-        },
-      ],
-    };
+
+  apollo: {
+    project: {
+      query: gql`query ProjectQuery($id: ID!){
+        project(_id: $id) {
+          _id
+          title {
+            value
+          }
+          description {
+            value
+          }
+        }
+      }`,
+      variables(): { id: string; } {
+        return {
+          id: this.$route.params.id,
+        };
+      },
+    },
   },
 });
 </script>
