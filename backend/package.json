@@ -15,7 +15,7 @@
   "author": "",
   "license": "MIT",
   "devDependencies": {
-    "@types/webpack-dev-middleware": "^4.3.0",
+    "@types/webpack-dev-middleware": "^5.0.2",
     "@types/webpack-env": "^1.16.0",
     "@types/webpack-hot-middleware": "^2.25.4",
     "@typescript-eslint/eslint-plugin": "^4.16.1",
