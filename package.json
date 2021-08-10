@@ -4,9 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "generate:client": "openapi-generator-cli generate -i openapi.json -g typescript-axios -o client/src",
-    "generate:backend": "openapi-generator-cli generate -i openapi.json -g typescript-nestjs -o backend/src/generated"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
@@ -15,8 +13,5 @@
     "backend",
     "frontend",
     "client"
-  ],
-  "devDependencies": {
-    "@openapitools/openapi-generator-cli": "^2.2.5"
-  }
+  ]
 }
