@@ -34,7 +34,7 @@
     "express": "^4.17.1",
     "graphql": "^15.5.0",
     "graphql-parse-resolve-info": "^4.12.0",
-    "mongoose": "^5.12.11",
+    "mongoose": "^6.2.6",
     "webpack": "^5.24.3",
     "webpack-cli": "^4.5.0",
     "webpack-dev-middleware": "^5.0.0",
